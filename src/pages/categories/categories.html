@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'categories' | translate}}
+            <!-- <span class="end">
+                <img src="assets/imgs/ic_search.png" (click)="search()">
+            </span>-->
+        </ion-title> 
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-background">
+   <!--  <ion-list no-lines>        
+        <ion-item *ngFor="let d of categoriasLst; let i = index" (click)="category_result(d.Id)">
+            <img [src]="d.Imagen" class="bg">
+            <div text-center class="text">
+                <h2 class="text-white">{{d.Nombre | translate}}</h2>
+                <p class="text-gray">{{d.CantProductos}} Canjes</p>
+            </div>
+        </ion-item>
+    </ion-list> -->
+    <ion-list class="offers" >
+        <ion-card>                  
+          <ion-row>
+            <ion-col col-6  (click)="category_result(d.Id)" class="colCategoryBloque" *ngFor="let d of categoriasLst">
+              <ion-fab class="fabCategoryBloque" vertical="top" horizontal="end" edge slot="fixed">
+                <span>{{d.CantProductos}}</span>
+             </ion-fab>
+              <img  [src]="d.Logo" class="imgCategoryBloque">          
+              <ion-card-content class="cardCategoryBloque">
+                <p class="pCategoryBloque">{{d.Nombre}}</p>                            
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-list>
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'edit_offer' | translate}}<span class="end text-theme" (click)="tabs() ">{{'save' | translate}}</span></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-background">
+    <div class="form" padding-left padding-right>
+        <ion-list no-lines padding-left padding-right>
+            <div class="store_img">
+                <!--        <img src="assets/imgs/profile.png">-->
+                <ion-icon name="md-camera" class="text-white bg-theme add-pic"></ion-icon>
+            </div>
+            <ion-item>
+                <ion-label floating>{{'offer_title' | translate}}</ion-label>
+                <ion-textarea type="text" value="Buy 2 pair of jens and get 2 for absolutel free. HURRY !"></ion-textarea>
+            </ion-item>
+            <ion-item class="about_offer">
+                <ion-label floating>{{'about_offer2' | translate}}</ion-label>
+                <ion-textarea type="text" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"></ion-textarea>t>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>{{'address2' | translate}}</ion-label>
+                <ion-input type="text" value="1124, Old Church Street (250m)"></ion-input>
+            </ion-item>
+            <ion-row>
+                <ion-col col-6>
+                    <ion-item>
+                        <ion-label item-start>{{'offer_start_date' | translate}}</ion-label>
+                        <div class="input_box d-flex" item-end>
+                            <ion-icon class="material-icons text-white">event</ion-icon>
+                            <ion-input type="text" value="25 - June - 18"></ion-input>
+                        </div>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                    <ion-item>
+                        <ion-label item-start>{{'offer_end_date' | translate}}</ion-label>
+                        <div class="input_box d-flex" item-end>
+                            <ion-icon class="material-icons text-white">event</ion-icon>
+                            <ion-input type="text" value="29 - June - 18"></ion-input>
+                        </div>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+    </div>
+</ion-content>

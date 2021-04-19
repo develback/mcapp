@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>{{vCategoria}} </ion-title> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-background">
+  <!-- <ion-list no-lines>
+       <ion-item (click)="vCantUsuarios>0 && VerListaDeUsuarios()">
+          <img src="assets/imgs/user_filter.jpg" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">Listado de Usuarios</h2>
+              <p class="text-gray">{{vCantUsuarios}} Perfiles</p>
+          </div>
+      </ion-item>
+      
+      <ion-item (click)="vCantProductos>0 && VerCanjesPorCategoria()">
+          <img src="assets/imgs/catalogo_filter.jpg" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">Ver Catálogo</h2>
+              <p class="text-gray">{{vCantProductos}} Resultados</p>
+          </div>
+      </ion-item>
+      <ion-item (click)="vCantHombres>0 && VerCanjesPorSexo('Hombre')">
+          <img src="assets/imgs/men_filter.jpg" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">Hombres</h2>
+              <p class="text-gray">{{vCantHombres}}  Perfiles</p>
+          </div>
+      </ion-item>
+      <ion-item (click)="vCantMujeres>0 && VerCanjesPorSexo('Mujer')">
+          <img src="assets/imgs/women_filter.jpg" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">Mujeres</h2>
+              <p class="text-gray">{{vCantMujeres}} Perfiles</p>
+          </div>
+      </ion-item>
+      
+  </ion-list> -->
+    <ion-list class="offers">
+        
+      <ion-card class="CardCss" (click)="vCantUsuarios>0 && VerListaDeUsuarios()">     
+          <ion-row>
+            <ion-col col-5 style="background-color: #a26bb7;">
+              <img src="assets/imgs/People3.jpg" style="min-width: 180px;">
+            </ion-col>
+            <ion-col col-7 style="background-color: #a26bb7;">
+              <h2 class="DiscountShow">LISTADO DE USUARIOS</h2>
+              <p style="font-size: 16px;text-align: center;margin-top: 10px;">{{vCantUsuarios}} Perfiles</p>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+    <ion-card class="CardCss" (click)="vCantProductos>0 && VerCanjesPorCategoria()">     
+          <ion-row>
+            <ion-col col-5 style="background-color: #a26bb7;">
+              <img src="assets/imgs/Product2.png" style="min-width: 180px;">
+            </ion-col>
+            <ion-col col-7 style="background-color: #a26bb7;">
+              <h2 class="DiscountShow">VER CATÁLOGO</h2>
+              <p style="font-size: 16px;text-align: center;margin-top: 10px;">{{vCantProductos}} Resultados</p>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+    <ion-card class="CardCss" (click)="vCantHombres>0 && VerCanjesPorSexo('Hombre')">     
+      <ion-row>
+        <ion-col col-5 style="background-color: #a26bb7;">
+          <img src="assets/imgs/Men1.jpg" style="min-width: 180px;">
+        </ion-col>
+        <ion-col col-7 style="background-color: #a26bb7;">
+          <h2 class="DiscountShow">HOMBRES</h2>
+          <p style="font-size: 16px;text-align: center;margin-top: 10px;">{{vCantHombres}} Perfiles</p>
+        </ion-col>
+    </ion-row>
+    </ion-card>
+    <ion-card class="CardCss" (click)="vCantMujeres>0 && VerCanjesPorSexo('Mujer')">      
+      <ion-row>
+        <ion-col col-5 style="background-color: #a26bb7;">
+          <img src="assets/imgs/Mujeres1.jpg" style="min-width: 180px;">
+        </ion-col>
+        <ion-col col-7 style="background-color: #a26bb7;">
+          <h2 class="DiscountShow">MUJERES</h2>
+          <p style="font-size: 16px;text-align: center;margin-top: 10px;">{{vCantMujeres}} Perfiles</p>
+        </ion-col>
+    </ion-row>
+    </ion-card>
+    <ion-card class="CardCss" (click)="vCantBeneficios>0 && VerDescuentosPorCategoria()">      
+      <ion-row>
+        <ion-col col-5 style="background-color: #a26bb7;">
+          <img src="assets/imgs/MujerDescuento.jpg" style="min-width: 180px;">
+        </ion-col>
+        <ion-col col-7 style="background-color: #a26bb7;">
+          <h2 class="DiscountShow">BENEFICIOS</h2>
+          <p style="font-size: 16px;text-align: center;margin-top: 10px;">{{vCantBeneficios}} Beneficios</p>
+        </ion-col>
+    </ion-row>
+    </ion-card>
+    
+  </ion-list> 
+</ion-content>

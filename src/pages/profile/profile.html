@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'my_profile' | translate}}<span class="end text-theme" (click)="putUsuario() ">{{'save' | translate}}</span></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-color" overflow-scroll="false">
+    <div class="form" padding-left padding-right>
+        <ion-list no-lines padding-left padding-right>
+            <div class="store_img">
+                <img [src]="base64Image" *ngIf="base64Image" />      
+                <!-- <ion-icon name="md-camera" class="text-white bg-theme add-pic"></ion-icon>-->
+                 <ion-fab center style="bottom: 30px;" >
+                   <button ion-fab style="background-color: #b9b6b6;">
+                       <ion-icon name="md-camera" class="text-white bg-theme add-pic"></ion-icon>
+                   </button>
+                   <ion-fab-list side="left">
+                     <button ion-fab (click)="AccessGallery()">
+                       <ion-icon name="md-photos" class="text-white bg-theme add-pic"></ion-icon>
+                     </button>
+                   </ion-fab-list>
+                   <ion-fab-list side="right">  
+                     <button ion-fab (click)="AccessCamera()">
+                       <ion-icon name="md-camera" class="text-white bg-theme add-pic"></ion-icon>
+                     </button>
+                   </ion-fab-list>
+                 </ion-fab>
+             </div>
+            <ion-item>
+                <ion-label floating>{{'shop_name' | translate}}</ion-label>
+                <ion-input type="text" [(ngModel)]="user.Nombre" value=""></ion-input>
+            </ion-item>
+           <!--  <ion-item>
+                <ion-label floating>Telefono</ion-label>
+                <ion-input type="text" [(ngModel)]="user.Telefono" value=""></ion-input>
+            </ion-item> -->
+            <ion-item>
+                <ion-label floating>Whatsapp</ion-label>
+                <ion-input type="text" [(ngModel)]="user.Whatsapp" value=""></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>{{'email_address' | translate}}</ion-label>
+                <ion-input type="text" [(ngModel)]="user.Mail" value=""></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Direccion</ion-label>
+                <ion-input type="text" [(ngModel)]="user.Direccion" value=""></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Rubro/ Profesión</ion-label>
+                <ion-input type="text" [(ngModel)]="user.RubroUsuario" value=""></ion-input>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

@@ -1,0 +1,118 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-title>Detalle del Canje</ion-title> 
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg-background">
+<!--     <div class="banner">
+        <img [src]="imgProd">
+        <div class="store-name">
+            <h2 class="text-white d-flex">{{nombreProd}}
+            </h2>
+        </div>
+    </div>
+    <div class="details">
+        <div class="about">
+            <h3 class="text-black">{{'about_offer' | translate}}</h3>
+            <p class="text-black">{{nombreProd}}. Valor estimado: $ {{importeProd}} </p>
+        </div>
+        <div class="interested d-flex">
+            <h3 class="d-flex text-black">
+                    {{cantSolicitudes}}
+                <small class="text-black">{{'people_send' | translate}}</small>
+            </h3>
+            <button  *ngIf="!ProductoCanjeado" ion-button block icon-start class="btn text-white end" round (click)="AbrirPopup()">
+                <ion-icon class="material-icons">notifications</ion-icon>
+                {{'send_invitation' | translate}}
+            </button>
+            <button *ngIf="ProductoCanjeado" ion-button block icon-start class="btn text-white end" round (click)="AbrirChat()">
+                    <ion-icon class="material-icons">mail</ion-icon>
+                    Enviar Chat
+                </button>
+            
+        </div>
+        
+        
+        <div class="address">
+                <div id="map_canvas"></div>           
+        </div>        
+    </div> -->
+    <ion-list class="offers">       
+      <ion-card>
+        <ion-item >
+          <ion-avatar item-start>
+            <img [src]="UsuarioImagen" style="width: 80px;height: 50px;">
+          </ion-avatar>
+          <h2 style="font-size: 1.9rem;padding-bottom: 2px;font-weight: 500;">{{Usuario}}</h2>
+          <ion-avatar item-end>
+            <img style="border-radius: 0%;width: 35px;height: 35px;" src="assets/imgs/share.png">
+          </ion-avatar>
+        </ion-item>
+      
+          <ion-row>
+            <ion-col col-7>
+              <img [src]="imgProd" style="min-width: 200px;">
+            </ion-col>
+            <ion-col col-5 style="background-color: #a26bb7;">
+              <h2 class="DiscountShow">{{PorcentajeDesc}} </h2>
+            </ion-col>
+        </ion-row>
+      
+       <ion-card-content>
+         <p style="font-weight: 500;">{{nombreProd}}</p>
+        <br>
+         <p style="font-weight: 300;"><b>Condiciones:</b> {{descripcionProd}}</p>
+         
+         <ion-item style="padding-left: 0px;">
+           <ion-avatar item-start style="margin-right: 0px;margin-bottom: 0px;">
+             <img src="assets/imgs/pin.png" style="width: 30px;height: 30px;">
+           </ion-avatar>
+           <p style="color: #222;font-weight: normal;margin-bottom: 0px;font-size: 16px;">{{DireccionUsuario}} (1 km)</p>                      
+         </ion-item>
+         <ion-item style="padding-left: 0px;">
+          <ion-avatar item-start style="margin-right: 0px;margin-bottom: 0px;">
+            <img src="assets/imgs/chronometer.png" style="width: 30px;height: 30px;">
+          </ion-avatar>
+          <p style="color: #222;font-weight: normal;margin-bottom: 0px;margin-top: 3px;font-size: 16px;">Vencimiento: {{FechaVencimiento | date:"dd/MM"}} </p>                      
+        </ion-item>
+         <ion-item style="padding-left: 0px;">
+            <button  ion-button block icon-start class="btn text-white end" round (click)="MostrarCodigo()">
+                <ion-icon class="material-icons">notifications</ion-icon>
+                Descargar Cupón
+            </button>
+         </ion-item>
+         <ion-item *ngIf="flagMostarCodigo"  style="padding-left: 0px;color: #a26bb7;border: dashed;">
+          <p style="color: #a26bb7;font-weight: 500;font-size: 26px;text-align: center;">{{CodigoDescuento}}</p>                      
+       </ion-item>
+         
+       
+       </ion-card-content>
+     
+       <ion-row>
+         <ion-col>
+           <button ion-button icon-start clear small>
+             <ion-icon name="thumbs-up"></ion-icon>
+             <div>12 Likes</div>
+           </button>
+         </ion-col>
+         <ion-col>
+           <button ion-button icon-start clear small>
+             <ion-icon name="text"></ion-icon>
+             <div>40 Descargas</div>
+           </button>
+         </ion-col>
+         
+       </ion-row>
+      <br>
+       <div class="address">
+          <div id="map_canvas"></div>           
+      </div>
+     
+     </ion-card>
+       
+    </ion-list> 
+    <br><br><br><br>
+</ion-content>

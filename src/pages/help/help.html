@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'help' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-color">
+    <ion-list no-lines>
+        <!--
+        <ion-item [ngClass]="faqExpand1 ? 'active' : '' " (click)="faqExpandToggle1()">
+            <h2 class="text-blue d-flex">{{'what_is_neargo' | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box">
+                <p class="text-violet"> Primera plataforma y App de canje para usuarios, comercios y servicios. Mundo Canje es una opción rápida y eficiente de optimizar recursos en un mundo cada vez más conectado. </p>
+            </div>
+        </ion-item>
+        <ion-item [ngClass]="faqExpand2 ? 'active' : '' " (click)="faqExpandToggle2()">
+            <h2 class="text-blue d-flex">{{'can_l_list_my_store_on_neargo' | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box">
+                <p class="text-blue"> MundoCanje dispone de 3 planes para los socios. Plan Basico: Puede generar hasta 5 canjes mensuales. El plan intermedio posibilita la generación de hasta 15 canjes mensuales y el Plan Full posibilita canjes ilimitados.</p>
+            </div>
+        </ion-item>
+        <ion-item [ngClass]="faqExpand3 ? 'active' : '' " (click)="faqExpandToggle3()">
+            <h2 class="text-blue d-flex">{{'how_to_complain_about_services' | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box">
+                <p class="text-black"> Los canjes se generan entre los usuarios, previamente aceptado el importe estimado. Puede ser por el total, o realizando la diferencia del importe a la otra parte.</p>
+            </div>
+        </ion-item>
+        <ion-item [ngClass]="faqExpand4 ? 'active' : '' " (click)="faqExpandToggle4()">
+            <h2 class="text-blue d-flex">{{'wahat_is_service_charnge' | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box">
+                <p class="text-black"> La app cuenta con diversas categorías, como ser: Indumentaria, Moda, Gastronomía, Música, Cursos, etc. Todas las semanas se siguen agregando nuevas categorías.</p>
+            </div>
+        </ion-item>
+        <ion-item [ngClass]="faqExpand5 ? 'active' : '' " (click)="faqExpandToggle5()">
+            <h2 class="text-blue d-flex">{{'user_data_pol' | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box">
+                <p class="text-black"> Todos los datos de los usuarios son privados y no pueden ser visualizados al navegar la app. Solamente se envían al usuario al momento de realizar el canje, con previa aceptación del usuario.</p>
+            </div>
+        </ion-item>
+        <ion-item [ngClass]="faqExpand6 ? 'active' : '' " (click)="faqExpandToggle6()">
+            <h2 class="text-blue d-flex">{{'are_those_services_are_free' | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box ">
+                <p class="text-black"> MundoCanje no cobra por transacción o pago en linea. Solamente recibe créditos por los planes de socios.</p>
+            </div>
+        </ion-item>
+        <ion-item [ngClass]="faqExpand7 ? 'active' : '' " (click)="faqExpandToggle7()">
+            <h2 class="text-blue d-flex">{{'can_i_create_event' | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box">
+                <p class="text-black"> Los canjes se pueden crear en cualquier momento y al mismo tiempo son compartidos por toda la comunidad.</p>
+            </div>
+        </ion-item>
+        <ion-item [ngClass]="faqExpand8 ? 'active' : '' " (click)="faqExpandToggle8()">
+            <h2 class="text-blue d-flex">{{'i_want_to_create_an_offer' | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box">
+                <p class="text-black"> La diferencia de los canjes pueden abonarse en Efectivo al retirar el producto o por pagos eléctronicos mediante Mercadopago. El usuario deberá elegir el método de pago que más le convenga.</p>
+            </div>
+        </ion-item>
+-->
+
+        <ion-item *ngFor="let d of pregFrec; let i = index"  (click)="toggleDetails(d)" [ngClass]="{'active': d.showDetails }">
+            <h2 class="text-blue d-flex">{{d.Pregunta | translate}}
+                <ion-icon class="material-icons end text-theme">keyboard_arrow_down</ion-icon>
+            </h2>
+            <div class="text_box">
+                <p class="text-violet"> {{d.Respuesta}} </p>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

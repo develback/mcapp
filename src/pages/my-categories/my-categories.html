@@ -1,0 +1,37 @@
+<ion-header class="bg-transparent">
+  <ion-navbar>
+      <ion-title>{{vTitulo}}</ion-title>
+  </ion-navbar>
+  <div class="banner">
+      <img src="assets/imgs/Fondo2_1080.jpg" class="bg">
+      <h4 class="d-flex text-white">
+          <ion-badge item-end>{{catSelect.length}}</ion-badge>
+          Categorías elegidas.
+      </h4>
+  </div>
+</ion-header>
+
+<ion-content class="bg-background">
+  <div class="form">        
+  <ion-list no-lines *ngFor="let d of categoriasUserLst; let i = index">
+      <ion-item>
+        <ion-label>{{d.NombreCategoria}} </ion-label>
+        <ion-checkbox color="light" (ionChange)="checkboxClick($event, d.IdCategoria)" [checked]="d.Checked"></ion-checkbox>
+      </ion-item>
+    
+      <!-- <ion-item>
+        <ion-label>Elegir todas</ion-label>
+        <ion-checkbox color="light" (click)="checkAll()"></ion-checkbox>
+      </ion-item> -->     
+      
+      
+     
+
+    </ion-list>
+
+    <button *ngIf="showButton" ion-button block class="btn" (click)="GuardarPreferencias()" round>
+      Guardar &nbsp;&nbsp;   
+      <ion-icon name="arrow-round-forward"></ion-icon>
+    </button>
+  </div>
+</ion-content>

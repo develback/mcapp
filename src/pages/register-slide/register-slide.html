@@ -1,0 +1,193 @@
+
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>registerSlide</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-slides pager="true">
+    <ion-slide *ngFor='let slide of slider' (ionSlideDidChange)="slidechanged">
+      <img [src]="slide.image" />
+      <h2 [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    
+  </ion-slides>
+</ion-content> -->
+
+
+<ion-header class="bg-transparent">
+ <!--     <ion-navbar>
+ <ion-title>{{'register' | translate}}</ion-title> 
+</ion-navbar> 
+-->
+</ion-header>
+
+<ion-content class="bg-color">
+  <div class="banner111">
+      <img src="assets/imgs/fondo1-3.png" >
+  </div>
+
+  <ion-slides pager="false">
+    <ion-slide>
+      <div class="form">        
+        <ion-list no-lines padding-left padding-right>            
+            <h4 style="color:#000000d9"><span style="color:#22709a">Paso 1.</span> Completá tus datos personales.</h4>
+            
+            <ion-item>
+                <img class="imglogin" src="assets/imgs/user-blue.png" item-start>
+                <ion-input style="margin-top: 14px;" item-end type="text" [(ngModel)]="user.Nombre" placeholder="Usuario"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+                <img class="imglogin" src="assets/imgs/phone1.png" item-start>
+                <ion-input style="margin-top: 14px;" item-right type="text" [(ngModel)]="user.Telefono" placeholder="Telefono"></ion-input>
+            </ion-item> -->
+            <ion-item>
+              <img class="imglogin" src="assets/imgs/whatsapp.png" item-start>
+              <ion-input style="margin-top: 14px;" item-right type="text" [(ngModel)]="user.Whatsapp" placeholder="Whatsapp"></ion-input>
+          </ion-item>
+            <ion-item>
+              <img class="imglogin" src="assets/imgs/location.png" item-start>
+              <ion-input style="margin-top: 14px;" item-right type="text" [(ngModel)]="user.Direccion" placeholder="Direccion"></ion-input>
+           </ion-item>
+           <ion-item>
+            <img class="imglogin" src="assets/imgs/education-cost.png" item-start>
+            <ion-input style="margin-top: 14px;" item-right type="text" [(ngModel)]="user.RubroUsuario" placeholder="Rubro/ Profesion"></ion-input>
+         </ion-item>
+<!--            <ion-item>
+            <ion-label floating>Sexo</ion-label>
+              <ion-select [(ngModel)]="IdSexo">                
+                  <ion-option *ngFor="let iCiudad of ListSexo; let i = index" [value]="iCiudad.id" >
+                      {{iCiudad.nombre}} 
+                  </ion-option>
+              </ion-select>
+          </ion-item>   -->     
+          
+          <ion-list radio-group color="secondary">                
+            <div class="row">
+              <ion-col col-6 col-sm-6 col-md-6 col-lg-6 >
+                  <ion-item>
+                  <ion-label>Hombre</ion-label>
+                  <ion-radio color="secondary" checked='true' (click)="SetGenero(1)" value='1'></ion-radio>
+                  </ion-item>
+              </ion-col>
+              <ion-col col-6 col-sm-6 col-md-6 col-lg-6 >
+                  <ion-item>
+                  <ion-label>Mujer</ion-label>
+                  <ion-radio color="secondary" (click)="SetGenero(2)" value='2'></ion-radio>
+                  </ion-item>
+              </ion-col>
+            </div>
+        
+        </ion-list>
+          <ion-item style="margin-top: 0px;">
+            <ion-label floating>Pais</ion-label>
+              <ion-select [(ngModel)]="IdPais">                
+                  <ion-option *ngFor="let iPais of ListPaises; let i = index" (ionSelect)="PaisSelect(iPais.Id)" [value]="iPais.Id" >
+                      {{iPais.Nombre}} 
+                  </ion-option>
+              </ion-select>
+          </ion-item>
+          <ion-item style="margin-top: 0px;">
+            <ion-label floating>Ciudad</ion-label>
+              <ion-select [(ngModel)]="IdCiudad">                
+                  <ion-option *ngFor="let iCiudad of ListCiudadesElegidas; let i = index" [value]="iCiudad.Id" >
+                      {{iCiudad.Nombre}} 
+                  </ion-option>
+              </ion-select>
+          </ion-item>
+
+            <button ion-button block class="btn" (click)="swipeNext()" round>
+              Continuar &nbsp;&nbsp;   
+              <ion-icon name="arrow-round-forward"></ion-icon>
+            </button>
+
+            <button ion-button block class="btn-xs" (click)="Previous()" round>               
+              <ion-icon name="arrow-round-back"></ion-icon>
+              &nbsp;&nbsp; Volver
+            </button>
+        </ion-list>
+    </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="form">        
+        <ion-list no-lines padding-left padding-right>            
+            <h4 style="color:#000000d9"><span style="color:#22709a">Paso 2.</span> Elegí las categorías que vas a ofrecer.</h4>
+            
+            <ion-list *ngFor="let d of categoriasLst; let i = index">
+              <ion-item>
+                <ion-label>{{d.Nombre}} </ion-label>
+                <ion-checkbox color="light" (ionChange)="checkboxClick($event, d.Id)" [checked]="selectedAll"></ion-checkbox>
+              </ion-item>
+             
+              <!-- <ion-item>
+                <ion-label>Elegir todas</ion-label>
+                <ion-checkbox color="light" (click)="checkAll()"></ion-checkbox>
+              </ion-item> -->            
+            </ion-list>
+            
+            
+        
+            <button ion-button block class="btn" (click)="swipeNext()" round>
+              Continuar &nbsp;&nbsp;   
+              <ion-icon name="arrow-round-forward"></ion-icon>
+            </button>
+
+            <button ion-button block class="btn-xs" (click)="swipePrev()" round>               
+              <ion-icon name="arrow-round-back"></ion-icon>
+              &nbsp;&nbsp; Volver
+            </button>
+        </ion-list>
+    </div>
+    </ion-slide>
+    <ion-slide style="height: 80%;">
+      <div class="form">        
+        <ion-list no-lines padding-left padding-right>            
+            <h4 style="color:#000000d9"><span style="color:#22709a">Último paso!</span> Subí tu imagen de perfil.</h4>
+            
+           <div class="store_img">
+              <img [src]="base64Image" *ngIf="base64Image" />      
+               <ion-fab center style="bottom: 30px;" >
+                 <button ion-fab style="background-color: #b9b6b6;">
+                     <ion-icon name="md-camera" class="text-white bg-theme add-pic"></ion-icon>
+                 </button>
+                 <ion-fab-list side="left">
+                   <button ion-fab (click)="AccessGallery()">
+                     <ion-icon name="md-photos" class="text-white bg-theme add-pic"></ion-icon>
+                   </button>
+                 </ion-fab-list>
+                 <ion-fab-list side="right">  
+                   <button ion-fab (click)="AccessCamera()">
+                     <ion-icon name="md-camera" class="text-white bg-theme add-pic"></ion-icon>
+                   </button>
+                 </ion-fab-list>
+               </ion-fab>
+           </div> 
+           <!--  <ion-list>
+              <ion-item>                
+              </ion-item>
+              
+            </ion-list>
+             -->
+            <button ion-button block class="btn" (click)="RegistrarUsuario()" round>
+              Finalizar &nbsp;&nbsp;   
+              <ion-icon name="arrow-round-forward"></ion-icon>
+            </button>
+
+            <button ion-button block class="btn-xs" (click)="swipePrev()" round>               
+              <ion-icon name="arrow-round-back"></ion-icon>
+              &nbsp;&nbsp; Volver
+            </button>
+        </ion-list>
+    </div>
+    </ion-slide>
+    
+  </ion-slides>
+ <!--  
+    
+   -->
+</ion-content>

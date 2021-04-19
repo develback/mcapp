@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>{{vCategoria}} </ion-title> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-color">
+  <ion-list no-lines>
+       <ion-item (click)="vCantUsuarios>0 && VerListaDeUsuarios()">
+          <img src="assets/imgs/user_filter.jpg" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">Listado de Usuarios</h2>
+              <p class="text-gray">{{vCantUsuarios}} Perfiles</p>
+          </div>
+      </ion-item>
+      
+      <ion-item (click)="vCantProductos>0 && VerCanjesPorCategoria()">
+          <img src="assets/imgs/catalogo_filter.jpg" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">Ver Catálogo</h2>
+              <p class="text-gray">{{vCantProductos}} Resultados</p>
+          </div>
+      </ion-item>
+      <ion-item (click)="vCantHombres>0 && VerCanjesPorSexo('Hombre')">
+          <img src="assets/imgs/men_filter.jpg" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">Hombres</h2>
+              <p class="text-gray">{{vCantHombres}}  Perfiles</p>
+          </div>
+      </ion-item>
+      <ion-item (click)="vCantMujeres>0 && VerCanjesPorSexo('Mujer')">
+          <img src="assets/imgs/women_filter.jpg" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">Mujeres</h2>
+              <p class="text-gray">{{vCantMujeres}} Perfiles</p>
+          </div>
+      </ion-item>
+      
+    <!--
+      <ion-item *ngFor="let d of categoriasLst; let i = index" (click)="category_result()">
+          <img [src]="d.Imagen" class="bg">
+          <div text-center class="text">
+              <h2 class="text-white">{{d.Nombre | translate}}</h2>
+              <p class="text-gray">{{d.Id}} Canjes</p>
+          </div>
+      </ion-item>
+      -->
+  </ion-list>
+</ion-content>

@@ -1,0 +1,338 @@
+<ion-header class="bg-color">
+  <ion-navbar>
+      <ion-title class="text-theme">  
+        <span class="start">                
+          <img src="assets/imgs/ic_open-menu.png" (click)="perfil()">
+      </span>
+          <img src="assets/imgs/banner_mc.png" width="50%" height="50%" (click)="search()">
+          <span class="end">                
+              <img src="assets/imgs/ic_search-4.png" (click)="search()">
+          </span>
+      </ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+<!-- <ion-content class="bg-color"> -->
+  <ion-content class="bg-background">
+    <!--   <div class="banner"  *ngFor="let d of bannersLst; let i = index">
+          <img [src]="d.Imagen" class="bg">                
+     </div> -->
+     <div class="form">
+        <ion-searchbar (ionInput)="getItems($event)" placeholder="{{'what_are_you_searching_for' | translate}}" class="text-white"></ion-searchbar>
+        
+        <ion-list class="offers"  *ngFor="let d of listBusqueda; let i = index">
+          <ion-card>
+            <ion-item (click)="ViewProfile(d.IdUsuario)">
+              <ion-avatar item-start>
+                <img [src]="d.UsuarioImagen" style="width: 50px;height: 50px;">
+              </ion-avatar>
+              <h2 style="font-size: 1.9rem;padding-bottom: 2px;font-weight: 500;">{{d.Usuario}}</h2>
+              <p style="font-size: 1.4rem;font-weight: normal">{{d.Fecha_Publicacion | date:'dd/MM/yyyy'}}</p>
+            </ion-item>          
+           <img [src]="d.Imagen">          
+            <ion-card-content>
+              <p>{{d.Nombre}}</p>              
+              <ion-item (click)="presentPrompt(d.Id)" style="padding-left: 0px;border-bottom: 0px solid #173e53 !important;">
+                <ion-avatar item-start style="margin-right: 0px;">
+                  <img src="assets/imgs/send.png" style="width: 25px;height: 25px;border-radius:0%;">
+                </ion-avatar>
+                <p style="color: #3a97c9;font-weight: normal;font-size: 15px;">Enviar solicitud de canje</p>                      
+              </ion-item>
+            </ion-card-content>          
+          </ion-card>
+        </ion-list>
+
+    </div>
+     
+     
+<!--      <div class="categories">
+          <h2 (click)="VerCategorias()" class="text-gray d-flex">Ver más categorías
+            <span (click)="VerMasUsuarios(); $event.stopPropagation()" class="text-violet end">Usuarios</span>
+          </h2>
+      </div> -->
+      <div class="categories">
+        <ion-row style="margin-left: 15px;">
+          <ion-col size="4">
+            <p (click)="VerCategorias()" class="text-gray d-flex">Tienda</p>
+          </ion-col>
+          <ion-col size="4">
+            <p (click)="VerMasUsuarios()" class="text-violet d-flex">Usuarios</p>
+          </ion-col>
+          <ion-col size="4">
+            <p (click)="VerMasDescuentos()" class="text-gray d-flex">Beneficios</p>
+          </ion-col>
+        </ion-row>
+      </div>
+      <!-- ////////Inicio bloque categorias////////// -->
+      <ion-slides pager="true" style="height: 70%;">
+        <ion-slide>
+              <ion-list class="offers" >
+                <ion-card>                  
+                  <ion-row>
+                    <ion-col col-6  (click)="category_result(d.Id)" class="colCategoryBloque" *ngFor="let d of categoriasLst  | slice:4:8;">
+                      <ion-fab class="fabCategoryBloque" vertical="top" horizontal="end" edge slot="fixed">
+                        <span>{{d.CantProductos}}</span>
+                     </ion-fab>
+                      <img  [src]="d.Logo" class="imgCategoryBloque">          
+                      <ion-card-content class="cardCategoryBloque">
+                        <p class="pCategoryBloque">{{d.Nombre}}</p>                            
+                      </ion-card-content>
+                    </ion-col>
+                  </ion-row>
+                </ion-card>
+              </ion-list>
+        </ion-slide>
+        <ion-slide>
+          <ion-list class="offers" >
+              <ion-card>
+                <ion-row>
+                  <ion-col col-6 (click)="category_result(d.Id)" class="colCategoryBloque" *ngFor="let d of categoriasLst  | slice:8:12;">
+                    <ion-fab class="fabCategoryBloque" vertical="top" horizontal="end" edge slot="fixed">
+                      <span>{{d.CantProductos}}</span>
+                   </ion-fab>
+                    <img  [src]="d.Logo" class="imgCategoryBloque">          
+                    <ion-card-content class="cardCategoryBloque">
+                      <p class="pCategoryBloque">{{d.Nombre}}</p>                            
+                    </ion-card-content>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+            </ion-list>
+      </ion-slide>
+      <ion-slide>
+        <ion-list class="offers" >
+            <ion-card>
+              <ion-row>
+                <ion-col col-6 (click)="category_result(d.Id)" class="colCategoryBloque" *ngFor="let d of categoriasLst  | slice:0:4;">
+                  <ion-fab class="fabCategoryBloque" vertical="top" horizontal="end" edge slot="fixed">
+                    <span>{{d.CantProductos}}</span>
+                 </ion-fab>
+                  <img  [src]="d.Logo" class="imgCategoryBloque">          
+                  <ion-card-content class="cardCategoryBloque">
+                    <p class="pCategoryBloque">{{d.Nombre}}</p>                            
+                  </ion-card-content>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-list>
+    </ion-slide>
+
+        
+      </ion-slides>
+
+
+
+    
+    
+    
+    
+    
+    <!-- ////////FIN bloque categorias///// -->
+    <!-- Categorias slide en 1 linea
+      <div class="fixed-bottom">
+        
+            <ion-scroll scrollX="true" style="height: 130px;white-space: nowrap;">
+              
+              <ion-card style="box-shadow:none" *ngFor="let d of categoriasLst; let i = index">
+                <ion-item (click)="category_result(d.Id)" style="background-color: #edebeb;">
+                    <ion-avatar item-start >
+                        <img [src]="d.Logo">
+                    </ion-avatar>                          
+                </ion-item>
+                <p> {{d.Nombre}} </p>                                                          
+            </ion-card>      
+          </ion-scroll>
+      </div>
+       -->
+
+          <div class="categories">
+            <h2 class="text-gray d-flex">Últimos Perfiles</h2>
+        </div>
+        <div>
+            <ion-list class="offers" *ngFor="let d of usuariosLst; let i = index">    
+              <ion-card class="cardUsers" (click)="ViewProfile(d.Id)"> 
+                <div class="banner">
+                  <img src="assets/imgs/Fondo2_1080.jpg" class="bg">
+                  <div class="profile d-flex" (click)="profile()">
+                      <div class="profile-img">
+                          <img [src]="d.Imagen">
+                      </div>
+                      <h2 class="h2Card">
+                          {{d.Nombre}}
+                          <span class="text-gray">{{d.CantCanjes}} canjes</span>              
+                          <span class="text-violet">{{d.Distancia}}</span>              
+                      </h2>          
+                  </div>
+                </div>
+              </ion-card>
+            
+            </ion-list>
+
+        </div>
+        <ion-list no-lines padding-left padding-right class="listButton" >
+          <div class="socile d-flex">
+              <button ion-button icon-start block class="btn text-white" round (click)="VerMasUsuarios()">
+                  <ion-icon class="material-icons text-white">add</ion-icon>
+                  Ver Más Usuarios
+              </button>
+              
+          </div>
+      </ion-list>
+
+          
+          <div class="categories">
+                  <h2 class="text-gray d-flex">{{'Canjes Destacados' | translate}}</h2>
+              </div>
+          <div>
+              <ion-list class="offers"  *ngFor="let d of canjesLst; let i = index">
+                <ion-card>
+                  <ion-item (click)="ViewProfile(d.IdUsuario)">
+                    <ion-avatar item-start>
+                      <img [src]="d.UsuarioImagen" style="width: 50px;height: 50px;">
+                    </ion-avatar>
+                    <h2 style="font-size: 1.9rem;padding-bottom: 2px;font-weight: 500;">{{d.Usuario}}</h2>
+                    <p style="font-size: 1.4rem;font-weight: normal">{{d.Fecha_Publicacion | date:'dd/MM/yyyy'}}</p>
+                    <ion-avatar item-end>
+                      <img style="border-radius: 0%;width: 35px;height: 35px;" src="assets/imgs/share.png">
+                    </ion-avatar>
+                  </ion-item>
+                
+                 <img [src]="d.Imagen">
+                
+                  <ion-card-content>
+                    <p>{{d.Nombre}}</p>
+                    
+                    <ion-item style="padding-left: 0px;">
+                      <ion-avatar item-start style="margin-right: 0px;">
+                        <img src="assets/imgs/pin.png" style="width: 30px;height: 30px;">
+                      </ion-avatar>
+                      <p style="color: #222;font-weight: normal;">2 km Belgrano</p>                      
+                    </ion-item>
+                    <ion-item (click)="presentPrompt(d.Id)" style="padding-left: 0px;">
+                      <ion-avatar item-start style="margin-right: 0px;">
+                        <img src="assets/imgs/send.png" style="width: 30px;height: 30px;border-radius:0%;">
+                      </ion-avatar>
+                      <p style="color: #3a97c9;font-weight: normal;">Enviar solicitud de canje</p>                      
+                    </ion-item>
+                    
+                  
+                  </ion-card-content>
+                
+                  <ion-row>
+                    <ion-col>
+                      <button ion-button icon-start clear small>
+                        <ion-icon name="thumbs-up"></ion-icon>
+                        <div>12 Likes</div>
+                      </button>
+                    </ion-col>
+                    <ion-col>
+                      <button ion-button icon-start clear small>
+                        <ion-icon name="text"></ion-icon>
+                        <div>4 Ofertas</div>
+                      </button>
+                    </ion-col>
+                    
+                  </ion-row>
+                
+                </ion-card>
+              </ion-list>
+      
+      
+          </div>
+          <ion-list no-lines padding-left padding-right class="listButton" >
+              <div class="socile d-flex">
+                  <button ion-button icon-start block class="btn text-white" round (click)="VerMasCanjes()">
+                      <ion-icon class="material-icons text-white">add</ion-icon>
+                      Ver Más Canjes
+                  </button>
+                  
+              </div>
+          </ion-list>
+
+           <div class="categories">
+                  <h2 class="text-gray d-flex">{{'Cupones' | translate}}</h2>
+              </div>
+          <div>
+               <ion-list class="offers"  *ngFor="let d of descuentosLst; let i = index">
+                
+                <ion-card (click)="offerdetail(d.Id)"> 
+                  <ion-item >
+                    <ion-avatar item-start>
+                      <img [src]="d.UsuarioImagen" style="width: 80px;height: 50px;">
+                    </ion-avatar>
+                    <h2 style="font-size: 1.9rem;padding-bottom: 2px;font-weight: 500;">{{d.Usuario}}</h2>
+                    <ion-avatar item-end>
+                      <img style="border-radius: 0%;width: 35px;height: 35px;" src="assets/imgs/share.png">
+                    </ion-avatar>
+                  </ion-item>
+                
+                    <ion-row>
+                      <ion-col col-7>
+                        <img [src]="d.Imagen" style="min-width: 200px;">
+                      </ion-col>
+                      <ion-col col-5 style="background-color: #a26bb7;">
+                        <h2 class="DiscountShow">{{d.PorcentajeDesc}} </h2>
+                      </ion-col>
+                  </ion-row>
+                
+                 <ion-card-content>
+                   <p style="font-weight: 500;">{{d.Descripcion}}</p>
+                   
+                   <ion-item style="padding-left: 0px;">
+                     <ion-avatar item-start style="margin-right: 0px;margin-bottom: 0px;">
+                       <img src="assets/imgs/pin.png" style="width: 30px;height: 30px;">
+                     </ion-avatar>
+                     <p style="color: #222;font-weight: normal;margin-bottom: 0px;">1 km Belgrano</p>                      
+                   </ion-item>
+                   <ion-item style="padding-left: 0px;">
+                    <ion-avatar item-start style="margin-right: 0px;margin-bottom: 0px;">
+                      <img src="assets/imgs/chronometer.png" style="width: 30px;height: 30px;">
+                    </ion-avatar>
+                    <p style="color: #222;font-weight: normal;margin-bottom: 0px;margin-top: 3px;">Vencimiento: {{d.FechaVencimiento | date:"dd/MM"}} </p>                      
+                  </ion-item>
+                   <ion-item style="padding-left: 0px;">
+                     <ion-avatar item-start style="margin-right: 0px;margin-bottom: 0px;">
+                       <img src="assets/imgs/price-tag.png" style="width: 30px;height: 30px;border-radius:0%;">
+                     </ion-avatar>
+                     <p style="color: #3a97c9;font-weight: normal;margin-bottom: 0px;">Descargar Cupón</p>                      
+                   </ion-item>
+                   
+                 
+                 </ion-card-content>
+               
+                 <ion-row>
+                   <ion-col>
+                     <button ion-button icon-start clear small>
+                       <ion-icon name="thumbs-up"></ion-icon>
+                       <div>12 Likes</div>
+                     </button>
+                   </ion-col>
+                   <ion-col>
+                     <button ion-button icon-start clear small>
+                       <ion-icon name="text"></ion-icon>
+                       <div>40 Descargas</div>
+                     </button>
+                   </ion-col>
+                   
+                 </ion-row>
+               
+               </ion-card>
+                 
+              </ion-list> 
+      
+      
+          </div>
+          <ion-list no-lines padding-left padding-right class="listButton">
+              <div class="socile d-flex">
+                  <button ion-button icon-start block class="btn text-white" round (click)="VerMasDescuentos()">
+                      <ion-icon class="material-icons text-white">add</ion-icon>
+                      Ver Más Cupones
+                  </button>
+              </div>
+          </ion-list> 
+</ion-content>
+<!-- <ion-footer no-border class="d-flex">
+  <ion-icon class="material-icons text-white bg-theme end" (click)="NuevoCanje()">add</ion-icon>
+</ion-footer> -->
+

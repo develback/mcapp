@@ -1,0 +1,125 @@
+<ion-header class="bg-transparent">
+    <!-- <ion-navbar>
+        <ion-title>
+            <span class="start" (click)="register()">
+                <span  style="font-size: 2.5rem;">+ </span>
+                {{'register' | translate}}
+            </span>
+        </ion-title>
+    </ion-navbar> -->
+</ion-header>
+
+<ion-content class="bg-color">
+    <div class="banner111">
+        <img src="assets/imgs/fondo1-3.png" >
+<!--         <div class="logo">
+            <img src="assets/imgs/Logomundo-canje.png">
+            
+        </div> -->
+    </div>
+    
+
+    <div class="defult-tab bg-white">
+        <ion-segment [(ngModel)]="login" padding-left padding-right>
+            <ion-segment-button value="signin" class="text-white">
+                INICIAR SESIÓN
+            </ion-segment-button>
+            <ion-segment-button value="signup" class="text-white">
+                REGISTRARME
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+    <div [ngSwitch]="login">
+        <div class="form" *ngSwitchCase="'signin'">        
+            <ion-list no-lines padding-left padding-right>
+                
+                <h4 style="color:#000000d9"><span style="color:#22709a">¡Hola!</span> Te damos la bienvenida.</h4>
+                
+                <!-- <ion-item>
+                    <ion-label floating>{{'email_address' | translate}}</ion-label>
+                    <ion-input type="email" [(ngModel)]="user.Mail" value="samanthasmith@mail.com"></ion-input>
+                </ion-item>
+                <ion-item class="password">
+                    <ion-label floating>{{'password' | translate}}</ion-label>
+                    <ion-input type="password" [(ngModel)]="user.password" class="password" value="123456"></ion-input>
+                    <h5 class="text-theme" item-end (click)="password()">{{'forgot' | translate}}</h5>
+                </ion-item> -->
+                <ion-item>
+                    <img class="imglogin" src="assets/imgs/mail.png" item-start>
+                    <ion-input item-end type="email" style="margin-top: 14px;" [(ngModel)]="user.Mail" placeholder="Email" value="samanthasmith@mail.com"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <img class="imglogin" src="assets/imgs/padlock.png" item-start>                    
+                    <ion-input style="margin-top: 14px;" type="password" class="password"  item-right [(ngModel)]="user.password" placeholder="Clave" value="123456"></ion-input>
+                </ion-item>                
+                    <h5 class="text-theme recovery" item-end (click)="password()">{{'forgot' | translate}}</h5>
+                
+                
+
+                <button ion-button block class="btn" style="margin-bottom: 25px;" (click)="IngresarUsuario()" round>{{'Enter' | translate}}</button>
+            <!--     
+                <button ion-button block class="btn-xs" (click)="tabs()" round>{{'enter_invited' | translate}}</button>
+                 -->
+                <div class="socile d-flex">
+                    <button ion-button icon-start block outline class="btn text-blue" round>
+                        <ion-icon> <img src="assets/imgs/ic_facebook.png"></ion-icon>
+                        {{'facebook' | translate}}
+                    </button>
+                    <button ion-button icon-start block outline class="btn text-blue" round>
+                        <ion-icon class="google"> <img src="assets/imgs/ic_google.png"></ion-icon>
+                        {{'google' | translate}}
+                    </button>
+                </div>
+            </ion-list>
+        </div>
+        <div class="form" *ngSwitchCase="'signup'">        
+            <ion-list no-lines padding-left padding-right>
+                
+                <h4 style="color:#000000d9"><span style="color:#22709a">¡Hola!</span> Creá tu nueva cuenta.</h4>
+                
+                <ion-item>
+                    <img class="imglogin" src="assets/imgs/mail.png" item-start>
+                    <ion-input style="margin-top: 14px;" item-end type="email" [(ngModel)]="mailRegister" placeholder="Email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <img class="imglogin" src="assets/imgs/padlock.png" item-start>
+                    <ion-input style="margin-top: 14px;" type="password" class="password" [(ngModel)]="passRegister" item-right placeholder="Clave"></ion-input>
+                </ion-item>
+
+                <button ion-button block class="btn" (click)="register()" round>Continuar</button>
+                
+            </ion-list>
+        </div>
+    </div>
+<!-- 
+    <div [ngSwitch]="login" class="difault-form bg-light" padding>
+        <ion-list *ngSwitchCase="'signin'">
+            <ion-item class="bg-light">
+                <ion-input type="email" [(ngModel)]="user.Mail" placeholder="E-mail" value="test@test.com"></ion-input>
+            </ion-item>
+            <ion-item class="bg-light">
+                <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña" value="test1234"></ion-input>                
+            </ion-item>
+            <br/><br/>
+            <small class="password" (click)="forgotpassword()">¿Te olvidaste la contraseña?</small>
+        
+            
+            <button ion-button full class="btn sucess" (click)="IngresarUsuario()">Ingresar</button>
+            <button ion-button full class="btn orange" (click)="location()">Ingresar como Invitado</button>
+            
+        </ion-list>
+        <ion-list *ngSwitchCase="'signup'">
+            <ion-item class="bg-light">
+                <ion-input type="email" [(ngModel)]="user.Mail" placeholder="E-mail" value=""></ion-input>
+            </ion-item>
+            <ion-item class="bg-light">
+                <ion-input type="text" [(ngModel)]="user.Nombre" placeholder="Nombre" value=""></ion-input>
+            </ion-item>
+            <ion-item class="bg-light">
+                <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña" value=""></ion-input>
+            </ion-item>
+            <br>
+            <button ion-button full class="btn sucess" (click)="RegistrarUsuario()">Registrarse</button>
+        </ion-list>
+    </div> -->
+</ion-content>

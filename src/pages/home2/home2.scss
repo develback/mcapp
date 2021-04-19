@@ -1,0 +1,320 @@
+page-home2 {
+    ion-content {
+        --background: url('/assets/imgs/Wallpaper1.jpg') no-repeat 100% 100%;
+    }
+    /* .login-background {
+        //background-image: url('/assets/imgs/Wallpaper1.jpg') ;
+        // background-image: url('/assets/imgs/Wallpaper2.png') ;
+        //background-image: url('/assets/imgs/Wallpaper3.jpg') ;
+        //background-image: url('/assets/imgs/Wallpaper4.jpg') ;
+        background-image: url('/assets/imgs/Wallpaper5.jpg') ;
+      } */
+      
+    .form {
+        padding: 0 27px;
+        overflow: hidden;
+        ion-searchbar {
+            padding: 0;
+            border-bottom: 1px solid darken($gray, 30%) !important;
+            .searchbar-input {
+                background: none;
+                padding: 6px 0px;
+                color: $black;
+                box-shadow: none;
+                text-align: center;
+                margin-top: 10px;
+                &::-moz-placeholder {
+                    color: $black;
+                    font-size: 2.1rem;
+                }
+                &:-ms-input-placeholder {
+                    color: $black;
+                    font-size: 2.1rem;
+                }
+                &::-webkit-input-placeholder {
+                    text-indent: 0;
+                    color: $black;
+                    font-size: 2.1rem;
+                }
+            }
+            .searchbar-search-icon {
+                display: none;
+            }
+            &.searchbar-ios {
+                background: none;
+                .searchbar-input {
+                    background: none !important;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .colCategoryBloque{
+        border-color: #00000047;;
+        border-width: 0.5px;
+        border-style: solid;
+        text-align: center;
+    }
+    .fabCategoryBloque{
+        border-radius: 50px;
+        font-weight: 300;
+        padding: 7px 11px;
+        font-size: 1.15rem;
+        background: #a26bb7;
+        top: 6px;
+        color: white;
+        right: 10px;
+    }
+    .pCategoryBloque{
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        line-height: 1.3 !important;
+    }
+    .imgCategoryBloque{
+        width: 80px;
+        margin-left: 35px;
+        margin-top: 15px;
+    }
+    .swiper-slide {
+        height: 90% !important;
+    }
+    .cardCategoryBloque{
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+    .cardUsers{
+        margin: 0;
+        background: none;
+        width: 100%;
+        box-shadow: none;
+    }
+    .h2Card{
+        font-size: 2.1rem;
+        margin: 0;
+        margin-left: 15px;
+        color: white;
+        font-weight: 500;
+    }
+    .banner {
+        font-weight: 300;
+        position: relative;
+        z-index: -1;
+        height: 96px;
+        overflow: hidden;
+        margin: 10px;
+        border-radius: 6px;
+
+        img {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .profile {
+            color: $white;
+            position: absolute;
+            z-index: 1;
+            bottom: 6px;
+            padding: 0 20px;
+
+            .profile-img {
+                position: relative;
+                width: 85px;
+                height: 85px;
+                overflow: hidden;
+                border-radius: 50%;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: -50% !important;
+                    right: -64% !important;
+                    width: 100% !important;
+                    max-width: unset;
+                    height: 100%;
+                    margin: auto;
+                }
+            }
+
+            h2 {
+                font-size: 2.1rem;
+                margin: 0;
+                margin-left: 15px;
+
+                span {
+                    display: block;
+                    font-size: 1.6rem;
+                    padding-top: 3px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(24, 24, 24, 0.28) 18%, rgba(22, 22, 22, 0.28) 36%, rgba(17, 17, 17, 1) 100%);
+
+        }
+    }
+    h2 {
+        margin: 0;
+        font-size: 1.35rem;
+        padding-bottom: 7px;
+    }
+    .categories {
+        padding-top: 28px;
+        h2 {
+            padding: 0 27px;
+            padding-bottom: 18px;
+        }
+    }
+
+    .header {
+        .toolbar .title .toolbar-title {
+            color: $theme-color;
+            font-size: 2.5rem;
+            font-weight: 500;
+            padding: 0 20px;
+        }
+
+        ion-segment {
+            ion-segment-button {
+                width: 100%;
+                background: none;
+                border: none;
+                position: relative;
+                opacity: unset !important;
+                font-size: 1.6rem !important;
+                text-transform: none !important;
+                color: darken($gray, 20%) !important;
+                font-weight: 400 !important;
+
+                &.segment-activated {
+                    background: none;
+                    border: none;
+                    opacity: unset !important;
+                    color: $white !important;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        width: 100px;
+                        height: 2px;
+                        display: block;
+                        background: $theme-color !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .listButton{
+        margin-top: 20px !important;
+    }
+
+    .list {
+        &.offers {            
+            .itemGrilla{
+                margin-bottom: 0px;
+            }
+            .H2Grilla{
+                font-size: 1.3rem !important;
+            }            
+        }
+    }
+    .card-md {
+        border-radius: 12px;
+        box-shadow: 0px 2px 10px 4px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .card-md p{
+        font-size: 18px;    
+        font-weight: 600;
+    }
+    .button-clear-md {
+        color: #b778d4;
+    }
+    .label-md {
+        margin: 5px 8px 10px 0;
+    }
+    .fixed-bottom {
+        ion-card {
+            display: inline-block;
+            width: 105px;
+            margin: 0 4px;
+            background: transparent;
+            box-shadow:none;
+            text-align: center;
+
+            ion-item {
+                padding: 0;
+                box-shadow: none;
+                border-color: #3a97c9;
+                border-width: 3px;
+                border-style: solid;
+                border-radius: 50%;
+            }
+            p{
+                color: #3a97c9;
+                font-size: 14px;
+                font-weight: 500;
+                //margin-left: 5px;
+            }
+
+            .item-inner {
+                padding: 0 !important;
+            }
+
+            [item-start] {
+                margin: 0;
+                border-radius: 0;
+                width: 98px;
+                height: 98px;
+                position: relative;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+                    width: 100px;
+                    height: 100px;
+                    max-width: unset;
+                    right: 0px;
+                    border-radius: 0;
+                    padding: 15px;
+                }
+            }
+
+        } 
+    }
+
+    .footer {
+        padding: 20px 16px;
+
+        ion-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 3rem !important;
+            line-height: 60px !important;
+        }
+    }
+    .DiscountShow{
+        text-align: center;
+        margin-top: 40px;
+        font-size: 36px;
+        font-weight: 600;
+        color: white;
+    }
+
+    
+}

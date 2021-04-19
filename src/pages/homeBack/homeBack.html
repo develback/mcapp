@@ -1,0 +1,180 @@
+<ion-header class="bg-color">
+    <ion-navbar>
+        <ion-title class="text-theme">{{'app_title' | translate}}
+            <span class="end">
+                    
+                <img src="assets/imgs/ic_chat-2.png" (click)="map22()">
+                <img src="assets/imgs/ic_search.png" (click)="search()">
+                <img src="assets/imgs/ic_map.png" (click)="map()">
+            </span>
+        </ion-title>
+    </ion-navbar>
+    <ion-segment [(ngModel)]="near">
+        <ion-segment-button value="offers">
+            {{'my_offers' | translate}}
+        </ion-segment-button>
+        <ion-segment-button value="events">
+            {{'my_events' | translate}}
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content class="bg-color">
+    <div [ngSwitch]="near">
+        <ion-list *ngSwitchCase="'offers'" class="offers">
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/8.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    2 Days
+                </ion-badge>
+                <div class="text">
+                    <h2>Buy 2 pair of jens and get 2 for absolutel free. HURRY !</h2>
+                    <p class="d-flex text-theme">
+                        125 {{'people_are_coming' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/5.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    6 Days
+                </ion-badge>
+                <div class="text">
+                    <h2>Happ hour lunch with 40% 0ff on total bill between 13:30 to 15:00 </h2>
+                    <p class="d-flex text-theme">
+                        125 {{'people_are_coming' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/6.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    5 Hrs
+                </ion-badge>
+                <div class="text">
+                    <h2>Flat 50% on all Branded Tshirts Stock clearance sale</h2>
+                    <p class="d-flex text-theme">
+                        150 {{'people_are_coming' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/8.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    2 Days
+                </ion-badge>
+                <div class="text">
+                    <h2>Buy 2 pair of jens and get 2 for absolutel free. HURRY !</h2>
+                    <p class="d-flex text-theme">
+                        125 {{'people_are_coming' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/5.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    6 Days
+                </ion-badge>
+                <div class="text">
+                    <h2>Happ hour lunch with 40% 0ff on total bill between 13:30 to 15:00 </h2>
+                    <p class="d-flex text-theme">
+                        125 {{'people_are_coming' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/6.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    5 Hrs
+                </ion-badge>
+                <div class="text">
+                    <h2>Flat 50% on all Branded Tshirts Stock clearance sale</h2>
+                    <p class="d-flex text-theme">
+                        150 {{'people_are_coming' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'events'">
+            <ion-item (click)="eventdetail()">
+                <img src="assets/imgs/9.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-calendar"></ion-icon>
+                    2 June - 6 June
+                </ion-badge>
+                <div class="text">
+                    <h2>Annual handycraft product exhibition near Walmart building</h2>
+                    <p class="d-flex"> 556 {{'people_are_interested_in_event' | translate}} </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="eventdetail()">
+                <img src="assets/imgs/10.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-calendar"></ion-icon>
+                    5 July only
+                </ion-badge>
+                <div class="text">
+                    <h2>Ed Sheeran Musical concert at MG townhell, New yourk. </h2>
+                    <p class="d-flex"> 576 {{'people_are_interested_in_event' | translate}} </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="eventdetail()">
+                <img src="assets/imgs/11.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-calendar"></ion-icon>
+                    7 June - 9 June
+                </ion-badge>
+                <div class="text">
+                    <h2>Career guidenece seminar by Edison Williamson at Townhall.</h2>
+                    <p class="d-flex"> 576 {{'people_are_interested_in_event' | translate}} </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="eventdetail()">
+                <img src="assets/imgs/9.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-calendar"></ion-icon>
+                    2 June - 6 June
+                </ion-badge>
+                <div class="text">
+                    <h2>Annual handycraft product exhibition near Walmart building</h2>
+                    <p class="d-flex"> 556 {{'people_are_interested_in_event' | translate}} </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="eventdetail()">
+                <img src="assets/imgs/10.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-calendar"></ion-icon>
+                    5 July only
+                </ion-badge>
+                <div class="text">
+                    <h2>Ed Sheeran Musical concert at MG townhell, New yourk. </h2>
+                    <p class="d-flex"> 576 {{'people_are_interested_in_event' | translate}} </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="eventdetail()">
+                <img src="assets/imgs/11.png" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-calendar"></ion-icon>
+                    7 June - 9 June
+                </ion-badge>
+                <div class="text">
+                    <h2>Career guidenece seminar by Edison Williamson at Townhall.</h2>
+                    <p class="d-flex"> 576 {{'people_are_interested_in_event' | translate}} </p>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
+<ion-footer no-border class="d-flex">
+    <ion-icon class="material-icons text-white bg-theme end" *ngIf="near == 'offers'" (click)="edit_offer()">add</ion-icon>
+    <ion-icon class="material-icons text-white bg-theme end" *ngIf="near == 'events'" (click)="edit_event()">add</ion-icon>
+</ion-footer>

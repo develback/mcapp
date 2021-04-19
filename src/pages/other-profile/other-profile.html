@@ -1,0 +1,45 @@
+<ion-header class="bg-transparent">
+  <ion-navbar>
+      <ion-title>Perfil de Usuario</ion-title>
+  </ion-navbar>
+  <div class="banner">
+      <img src="assets/imgs/Fondo2_1080.jpg"  class="bg">
+      <div class="profile d-flex" >
+          <div class="profile-img">
+              <img [src]="base64Image"  *ngIf="base64Image">
+          </div>
+          <h2>
+              {{UsNombre}}
+              <span class="text-gray">{{UsLocalidad}}</span>
+          </h2>
+      </div>
+  </div>
+</ion-header>
+
+<ion-content class="bg-background">
+    <ion-list no-lines>
+        
+        <ion-item>
+            <img src="assets/imgs/ic_star.png" class="ImgItems" item-start>
+            <h2 class="text-blue">{{RubroUsuario}}</h2>
+            <p class="text-gray">Mi Rubro/ Profesión</p>
+        </ion-item>
+        <ion-item (click)="GotoCategoryList()">
+            <img src="assets/imgs/ic-term-condition-1.png" class="ImgItems" item-start>
+            <h2 class="text-blue">Categorías de Canjes</h2>
+            <p class="text-gray">Ver categorías que ofrece el usuario</p>
+        </ion-item>
+        <ion-item (click)="GotoCatalogo()">
+            <img src="assets/imgs/ic_thumbs-up-hand-1.png" class="ImgItems" item-start>
+            <h2 class="text-blue">Catálogo de Canjes</h2>
+            <p class="text-gray">Ver catálogo del usuario</p>
+        </ion-item>
+        <ion-item (click)="presentPrompt()">
+            <img src="assets/imgs/send.png" style="width: 24px;top: 1px;" item-start>
+            <h2 class="text-blue">Enviar Solicitud de Canje</h2>
+            <p class="text-gray">Conectar</p>
+        </ion-item>
+        
+        
+    </ion-list>
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header class="bg-transparent">
+    <ion-navbar>
+        <ion-title>Menu</ion-title>
+    </ion-navbar>
+    <div class="banner">
+        <img src="assets/imgs/Fondo2_1080.jpg" class="bg">
+        <div class="profile d-flex" (click)="profile()">
+            <div class="profile-img">
+                <img [src]="base64Image" *ngIf="base64Image">
+            </div>
+            <h2>
+                {{user.Nombre}}
+                <span class="text-gray">{{'view_profile' | translate}}</span>
+            </h2>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content class="bg-background">
+    <ion-list no-lines>
+        <ion-item (click)="review()">
+            <img src="assets/imgs/ic_notification-1.png" item-start>
+            <h2 class="text-blue">{{'notifications' | translate}}</h2>
+            <p class="text-gray">{{'view_all_notifications' | translate}}</p>
+            <ion-badge item-end>
+                {{cantNotificaciones}}
+                <ion-icon name="md-notifications"></ion-icon>
+            </ion-badge>
+        </ion-item>
+        <!-- <ion-item>
+            <img src="assets/imgs/ic_share-1.png" item-start>
+            <h2 class="text-blue">{{'share_app' | translate}}</h2>
+            <p class="text-gray">{{'invite_frindes_family' | translate}}</p>
+        </ion-item> -->
+        <ion-item (click)="GotoCanjes()">
+            <img src="assets/imgs/ic-term-condition-1.png" item-start>
+            <h2 class="text-blue">Mi Catálogo de Canjes</h2>
+            <p class="text-gray">Ver el listado de tus canjes</p>
+        </ion-item>
+       
+       <!--  <ion-item>
+            <img src="assets/imgs/ic_thumbs-up-hand-1.png" item-start>
+            <h2 class="text-blue">{{'rate_app' | translate}}</h2>
+            <p class="text-gray">{{'rate_us' | translate}}</p>
+        </ion-item> -->
+        <ion-item (click)="GotoMyCategories()">
+            <img src="assets/imgs/ic_thumbs-up-hand-1.png" item-start>
+            <h2 class="text-blue">Mis Preferencias de Canjes</h2>
+            <p class="text-gray">Actualizá tus categorías preferidas</p>
+        </ion-item>
+        <!-- <ion-item (click)="condition()">
+            <img src="assets/imgs/ic-term-condition-1.png" item-start>
+            <h2 class="text-blue">{{'terms_conditions' | translate}}</h2>
+            <p class="text-gray">{{'our_terms_conditions' | translate}}</p>
+        </ion-item> -->
+        <!--
+        <ion-item>
+            <img src="assets/imgs/ic_discount.png" item-start>   
+            <h2 class="text-blue">Mis Cupones/ Beneficios</h2>
+            <p class="text-gray">Revisá los cupones descargados</p>
+        </ion-item>
+        -->
+        <ion-item (click)="help()">
+            <img src="assets/imgs/ic_help-1.png" item-start>
+            <h2 class="text-blue">{{'need_help' | translate}}</h2>
+            <p class="text-gray">{{'faq' | translate}}</p>
+        </ion-item>
+        <ion-item (click)="logout()">
+                <img src="assets/imgs/logout.png" item-start>
+                <h2 class="text-blue">Salir</h2>     
+                <p class="text-gray">Cerrar sesión</p>           
+            </ion-item>
+    </ion-list>
+</ion-content>

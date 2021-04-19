@@ -1,0 +1,107 @@
+<ion-header class="bg-color">
+  <ion-navbar>
+      <ion-title class="text-theme">  
+        <span class="start">                
+          <img src="assets/imgs/ic_open-menu.png" (click)="perfil()">
+      </span>
+          <img src="assets/imgs/banner_mc.png" width="50%" height="50%" (click)="search()">
+          <span class="end">                
+              <img src="assets/imgs/ic_search-4.png" (click)="search()">
+          </span>
+      </ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content class="bg-background">
+  <div>
+<!--       <ion-list  class="offers" *ngFor="let d of listDescuentos; let i = index">
+          <ion-item (click)="offerdetail(d.Id)">
+              <img [src]="d.Imagen" class="bg">
+              <ion-badge item-end>
+                  <ion-icon name="md-stopwatch"></ion-icon>
+                  {{d.Ult_Dias}} Días
+              </ion-badge>
+              <div class="text">
+                  <h2>{{d.Nombre}}</h2>
+                  <p class="d-flex text-theme">
+                      {{d.Descripcion}}
+                  </p>
+              </div>
+          </ion-item>
+
+      </ion-list> -->
+      <ion-list class="offers"  *ngFor="let d of listDescuentos; let i = index">
+       
+         <ion-card (click)="offerdetail(d.Id)">  
+       <!--  <ion-card> -->
+         <ion-item >
+           <ion-avatar item-start>
+             <img [src]="d.UsuarioImagen" style="width: 80px;height: 50px;">
+           </ion-avatar>
+           <h2 style="font-size: 1.9rem;padding-bottom: 2px;font-weight: 500;">{{d.Usuario}}</h2>
+           <ion-avatar item-end>
+             <img style="border-radius: 0%;width: 35px;height: 35px;" src="assets/imgs/share.png">
+           </ion-avatar>
+         </ion-item>
+       
+           <ion-row>
+             <ion-col col-7>
+               <img [src]="d.Imagen" style="min-width: 200px;">
+             </ion-col>
+             <ion-col col-5 style="background-color: #a26bb7;">
+               <h2 class="DiscountShow">{{d.PorcentajeDesc}} </h2>
+             </ion-col>
+         </ion-row>
+       
+        <ion-card-content>
+          <p style="font-weight: 500;">{{d.Descripcion}}</p>
+          
+          <ion-item style="padding-left: 0px;">
+            <ion-avatar item-start style="margin-right: 0px;margin-bottom: 0px;">
+              <img src="assets/imgs/pin.png" style="width: 30px;height: 30px;">
+            </ion-avatar>
+            <p style="color: #222;font-weight: normal;margin-bottom: 0px;font-size: 16px;">1 km Belgrano</p>                      
+          </ion-item>
+          <ion-item style="padding-left: 0px;">
+           <ion-avatar item-start style="margin-right: 0px;margin-bottom: 0px;">
+             <img src="assets/imgs/chronometer.png" style="width: 30px;height: 30px;">
+           </ion-avatar>
+           <p style="color: #222;font-weight: normal;margin-bottom: 0px;margin-top: 3px;font-size: 16px;">Vencimiento: {{d.FechaVencimiento | date:"dd/MM"}} </p>                      
+         </ion-item>
+          <ion-item style="padding-left: 0px;">
+            <ion-avatar item-start style="margin-right: 0px;margin-bottom: 0px;">
+              <img src="assets/imgs/price-tag.png" style="width: 30px;height: 30px;border-radius:0%;">
+            </ion-avatar>
+            <p style="color: #3a97c9;font-weight: normal;margin-bottom: 0px;">Descargar Cupón</p>                      
+          </ion-item>
+          
+        
+        </ion-card-content>
+      
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>12 Likes</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>40 Descargas</div>
+            </button>
+          </ion-col>
+          
+        </ion-row>
+      
+      </ion-card>
+        
+     </ion-list> 
+
+  </div>
+</ion-content>
+<ion-footer no-border class="d-flex">
+  <ion-icon class="material-icons text-white bg-theme end" *ngIf="near == 'offers'" (click)="edit_offer()">add</ion-icon>
+  <ion-icon class="material-icons text-white bg-theme end" *ngIf="near == 'events'" (click)="edit_event()">add</ion-icon>
+</ion-footer>

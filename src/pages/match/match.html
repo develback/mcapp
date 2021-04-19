@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+      <!--<ion-title>{{'match' | translate}}<span class="end text-theme" (click)="tabs() ">{{'save' | translate}}</span></ion-title>-->
+
+      <ion-title class="text-theme">{{'match' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="bg-background">
+  <div class="form" padding-left padding-right style="margin-bottom: 60px;">
+      <ion-list no-lines >          
+          <ion-slides pager="true" autoplay="3000" loop="true">
+              <ion-slide (click)="ViewProfile(canjePedido.IdUsuarioSolicita)">
+                  <div class="store_img">
+                      <img [src]="canjePedido.ImgProductoInteres" >  
+                      <!-- <ion-badge item-end>${{canjePedido.Importe}}</ion-badge>             -->
+                      <ion-badge item-end style="background-color: #fd7821;" >Ver Perfil</ion-badge> 
+                  </div>
+                  <!-- <div class="end">
+                    <ion-badge item-end (click)="ViewProfile(); $event.stopPropagation()">
+                            Ver Perfil
+                    </ion-badge>                                  
+                </div> -->
+              </ion-slide>
+              
+            </ion-slides>
+          <!-- <ion-item>
+              <ion-label floating>{{'event_title' | translate}}</ion-label>
+              <ion-textarea type="text" disabled="true" value="{{canjePedido.NombreProductoInteres}}"></ion-textarea>
+          </ion-item>   -->
+          <h4 style="margin-top: 5px;">{{canjePedido.NombreProductoInteres}}</h4>
+
+          <ion-item>
+            <ion-label floating>Comentarios</ion-label>
+            <ion-textarea type="text" disabled="true" value="{{canjePedido.Comentarios}}"></ion-textarea>
+        </ion-item>  
+      </ion-list>
+  </div>
+</ion-content>
+<ion-footer no-border class="d-flex">
+    <ion-icon class="material-icons text-white colorRed start" (click)="RechazaMatch()">thumb_down_alt</ion-icon>
+    <ion-icon class="material-icons text-white colorGreen end" (click)="AceptaMatch()">thumb_up_alt</ion-icon>
+  </ion-footer>

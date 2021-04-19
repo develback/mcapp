@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-icon name="md-close" class="text-theme" (click)="dismiss()"></ion-icon>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-background">
+    <div class="form">
+        <ion-searchbar (ionInput)="getItems($event)" placeholder="{{'what_are_you_searching_for' | translate}}" class="text-white"></ion-searchbar>
+        
+        <ion-list class="offers"  *ngFor="let d of listBusqueda; let i = index">
+            <ion-card>
+              <ion-item (click)="ViewProfile(d.IdUsuario)">
+                <ion-avatar item-start>
+                  <img [src]="d.UsuarioImagen" style="width: 50px;height: 50px;">
+                </ion-avatar>
+                <h2 style="font-size: 1.9rem;padding-bottom: 2px;font-weight: 500;">{{d.Usuario}}</h2>
+                <p style="font-size: 1.4rem;font-weight: normal">{{d.Fecha_Publicacion | date:'dd/MM/yyyy'}}</p>
+              </ion-item>          
+             <img [src]="d.Imagen">          
+              <ion-card-content>
+                <p>{{d.Nombre}}</p>              
+                <ion-item (click)="presentPrompt(d.Id)" style="padding-left: 0px;border-bottom: 0px solid #173e53 !important;">
+                  <ion-avatar item-start style="margin-right: 0px;">
+                    <img src="assets/imgs/send.png" style="width: 25px;height: 25px;border-radius:0%;">
+                  </ion-avatar>
+                  <p style="color: #3a97c9;font-weight: normal;font-size: 15px;">Enviar solicitud de canje</p>                      
+                </ion-item>
+              </ion-card-content>          
+            </ion-card>
+          </ion-list>
+    </div>
+    <div class="categories">
+        
+        
+        <ion-list class="offers" >
+          <ion-card>                  
+            <ion-row>
+              <ion-col col-6  (click)="category_result(d.Id)" class="colCategoryBloque" *ngFor="let d of categoriasLst">
+                <ion-fab class="fabCategoryBloque" vertical="top" horizontal="end" edge slot="fixed">
+                  <span>{{d.CantProductos}}</span>
+               </ion-fab>
+                <img  [src]="d.Logo" class="imgCategoryBloque">          
+                <ion-card-content class="cardCategoryBloque">
+                  <p class="pCategoryBloque">{{d.Nombre}}</p>                            
+                </ion-card-content>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-list>
+    </div>
+</ion-content>

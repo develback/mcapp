@@ -1,0 +1,57 @@
+page-help {
+    .list {
+        margin: 0;
+        padding-top: 20px;
+
+        .item {
+            padding: 10px 23px;
+            background: none;
+
+            h2 {
+                font-size: 1.8rem;
+
+            }
+
+            .item-inner {
+                padding: 0;
+
+                .label {
+                    margin: 0;
+                    white-space: normal;
+
+                    .text_box {
+                        margin: 0 auto;
+                        width: 100%;
+                        //padding-top: 10px;
+                        height: 0;
+                        overflow: hidden;
+
+                        p {
+                            margin: 0 auto;
+                            font-size: 1.2rem;
+                            font-weight: 400;
+                            line-height: 17px;
+                            letter-spacing: 0.5px;
+                            padding-top: 10px;
+                        }
+                    }
+                }
+            }
+
+            &.active {
+                .item-inner .label {
+                    h2 {
+                        ion-icon {
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    .text_box {
+                        height: auto;
+                    }
+                }
+            }
+        }
+
+    }
+}

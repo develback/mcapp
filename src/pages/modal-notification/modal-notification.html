@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Solicitud de Canje</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Cerrar</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  
+  
+ <!-- <div class="form" padding-left padding-right>-->
+      <ion-list no-lines radio-group>   
+          <ion-list-header>
+              Seleccioná tu Canje
+            </ion-list-header>  
+            
+            <ion-item *ngFor="let d of CanjesLst; let i = index">
+                
+                <ion-thumbnail item-start>
+                    <img [src]="d.Imagen">
+                  </ion-thumbnail>
+                  <ion-label>{{d.Nombre}}</ion-label>
+                  <ion-radio (ionSelect)="SetProductChecked(d)"  [value]=d.Id></ion-radio>
+                
+            </ion-item>
+
+                          
+          <ion-item style="margin-top: 20px;">
+                <!-- <ion-label floating>{{'event_title' | translate}}</ion-label>
+                <ion-textarea type="text" value="" [(ngModel)]="product.Descripcion"></ion-textarea> -->
+                <ion-label floating>Comentario</ion-label>
+                <ion-textarea [(ngModel)]="pedido.Comentarios" type="text" value=""></ion-textarea>
+            </ion-item>            
+          <!--
+            <ion-item>
+                <ion-label item-start>Precio ($):</ion-label>
+                <div class="input_box d-flex" item-end>
+                    <ion-icon class="text-black" name="cash"></ion-icon>
+                    <ion-input [(ngModel)]="pedido.Importe" type="number" value="0" ></ion-input>
+                </div>e
+            </ion-item>
+            -->
+      </ion-list>
+      <ion-list no-lines padding-left padding-right class="listButton">
+          <div class="socile d-flex">
+              <button ion-button icon-start block class="btn text-white" round (click)="SendNotification()">
+                  <ion-icon class="material-icons text-white">notifications</ion-icon>
+                  Enviar Solicitud
+              </button>
+          </div>
+      </ion-list>
+
+      
+ <!-- </div>-->
+</ion-content>

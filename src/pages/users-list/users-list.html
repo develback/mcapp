@@ -1,0 +1,40 @@
+<ion-header class="bg-color">
+  <ion-navbar>
+      <ion-title class="text-theme">  
+        <span class="start">                
+          <img src="assets/imgs/ic_open-menu.png" (click)="perfil()">
+      </span>
+          <img src="assets/imgs/banner_mc.png" width="50%" height="50%" (click)="search()">
+          <span class="end">                
+              <img src="assets/imgs/ic_search-4.png" (click)="search()">
+          </span>
+      </ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content class="bg-background">
+  <div class="categories">
+    <h2 class="text-gray d-flex">Listado de Usuarios</h2>
+</div>
+  <ion-list class="offers" *ngFor="let d of perfilesLst; let i = index">
+    
+    <ion-card class="cardUsers" (click)="ViewProfile(d.Id)"> 
+      <div class="banner">
+        <img src="assets/imgs/Fondo2_1080.jpg" class="bg">
+        <div class="profile d-flex" (click)="profile()">
+            <div class="profile-img">
+                <img [src]="d.Imagen">
+            </div>
+            <h2 class="h2Card">
+                {{d.Nombre}}
+                <span class="text-gray">{{d.CantCanjes}} canjes</span>              
+                <span class="text-violet">{{d.Distancia}}</span>              
+            </h2>          
+        </div>
+      </div>
+    </ion-card>
+  
+  </ion-list>
+</ion-content>

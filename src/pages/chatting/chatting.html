@@ -1,0 +1,46 @@
+<ion-header class="bg-transparent">
+    <ion-navbar>
+        <ion-title>
+            <span class="text-white">{{UsNombreReceptor}}<small>online</small></span>
+        </ion-title>
+    </ion-navbar>
+    <div class="banner">
+       <!-- <img src="assets/imgs/background.png" class="bg"> -->
+       <img [src]="UsImgReceptor" class="bg">
+    </div>
+</ion-header>
+
+<ion-content class="bg-background">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    
+    <div *ngFor="let d of chatDetalleApi; let i = index" (ionRefresh)="doRefresh($event)">
+        <div *ngIf="(d.Usuario_Emisor == UsEmisor)" class="send chat-box" padding>
+            <h6>{{d.Mensaje}}</h6>
+            <p>{{d.Fecha_Mensaje | date:"dd/MM/yyyy"}}</p>
+        </div>
+        <div *ngIf="(d.Usuario_Emisor == UsIdReceptor)" class="received chat-box" padding>
+            <h6>{{d.Mensaje}}</h6>
+            <p>{{d.Fecha_Mensaje | date:"dd/MM/yyyy"}}</p>
+        </div>
+    </div>
+        
+</ion-content>
+<ion-footer no-border>
+    <div class="fixed-bottom form">
+        <ion-list class="" no-lines>
+            <ion-item>
+                <ion-input  [(ngModel)]="MensajeSend" type="text" placeholder="{{'type_your_message' | translate}}"></ion-input>
+                <div class="" item-end>
+                    <!-- <ion-icon name="attach" class="attach"></ion-icon> -->
+                    <!-- <ion-icon (click)="SendChat()" name="md-send" class=""></ion-icon> -->
+                    <button (click)="SendChat()" ion-button icon-start clear small>
+                        <ion-icon name="md-send"></ion-icon>
+                        
+                      </button>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-footer>

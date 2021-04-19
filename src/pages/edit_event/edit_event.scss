@@ -1,0 +1,121 @@
+page-edit_event {
+    .header {
+        .toolbar-title {
+            span {
+                font-size: 1.9rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .store_img {
+        background: lighten($dark, 15%);
+        width: 210px;
+        height: 110px;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -50% !important;
+            right: -50% !important;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+        }
+
+        ion-icon {
+            &.add-pic {
+                top: 0px;
+                right: 0px;
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                width: 36px;
+                text-align: center;
+                height: 36px;
+                border-radius: 50%;
+                line-height: 36px;
+                margin: auto;
+            }
+        }
+    }
+
+    .form {
+        .list {
+            margin-bottom: 0;
+
+            .item {
+                margin-bottom: 10px;
+
+                .item-inner {
+                    ion-input .text-input {
+                        font-size: 1.5rem;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        ion-item {
+            ion-textarea {
+                .text-input {
+                    color: $black;
+                    margin: 0;
+                    margin-bottom: 9px;
+                    width: 100%;
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    line-height: 23px;
+                }
+            }
+
+            &.about_offer {
+                ion-textarea {
+                    .text-input {
+                        height: 93px;
+
+                    }
+                }
+            }
+        }
+
+        .row {
+            margin: 0 -20px;
+            padding-top: 12px;
+
+            .col {
+                padding: 0 20px;
+
+                ion-item {
+                    display: block;
+                    .label {
+                        margin: 0;
+                        font-size: 1.35rem;
+                        font-weight: 400;
+                        color:#225c7b;
+                    }
+
+                    .input_box {
+                        margin: 0 !important;
+
+                        input {
+                            margin-bottom: 0 !important;
+                        }
+
+                        ion-icon {
+                            font-size: 1.7rem;
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'chats_history' | translate}}<span class="end">
+                <img src="assets/imgs/ic_search-4.png" (click)="search()">
+            </span></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-background">
+    
+<!--
+    <ion-list no-lines *ngFor="let d of chatLst; let i = index">
+        <ion-item class="active" (click)="chatting()">
+            <div class="img-box">
+                <img src="assets/imgs/background.png">
+            </div>
+            <div class="details">
+                <h2 class="text-white d-flex">Las Medialunas del Abuelo<span class="end">{{d.Fecha_Ultimo_Mensaje}}</span></h2>
+                <p class="text-white d-flex">{{d.Ultimo_Mensaje}}<span class="end notifications">1</span></p>
+            </div>
+        </ion-item>
+-->
+<!-- <ion-list no-lines *ngFor="let d of chatLst; let i = index">
+        <ion-item (click)="chatting(d)">
+                <div  *ngIf="(d.Usuario_Emisor != idUsuarioPropio)"  class="img-box">
+                    <img [src]="d.ImgUsuarioEmisor">
+                </div>
+                <div *ngIf="(d.Usuario_Receptor != idUsuarioPropio)" class="img-box">
+                        <img [src]="d.ImgUsuarioReceptor">
+                    </div>
+                <div *ngIf="(d.Usuario_Emisor != idUsuarioPropio)" class="details">
+                    <h2 class="text-white d-flex">{{d.NombreUsuarioEmisor}}<span class="end">{{d.Fecha_Ultimo_Mensaje | date:"dd/MM/yyyy"}}</span></h2>
+                    <p class=" d-flex">{{d.Ultimo_Mensaje}}<span class="end"></span></p>
+                </div>
+                <div *ngIf="(d.Usuario_Receptor != idUsuarioPropio)" class="details">
+                        <h2 class="text-white d-flex">{{d.NombreUsuarioReceptor}}<span class="end">{{d.Fecha_Ultimo_Mensaje | date:"dd/MM/yyyy"}}</span></h2>
+                        <p class=" d-flex">{{d.Ultimo_Mensaje}}<span class="end"></span></p>
+                    </div>
+            </ion-item>
+  
+    </ion-list> -->
+    <ion-list class="offers" *ngFor="let d of chatLst; let i = index">    
+        <ion-card class="cardUsers" (click)="chatting(d)"> 
+            <div class="banner" >
+                <img src="assets/imgs/Fondo2_1080.jpg" class="bg">
+                <div class="profile d-flex" (click)="chatting(d)">              
+                    <div  *ngIf="(d.Usuario_Emisor != idUsuarioPropio)" class="profile-img">
+                        <img [src]="d.ImgUsuarioEmisor">
+                    </div>
+                    <div *ngIf="(d.Usuario_Receptor != idUsuarioPropio)" class="profile-img">
+                        <img [src]="d.ImgUsuarioReceptor">
+                    </div>
+                    <h2 *ngIf="(d.Usuario_Emisor != idUsuarioPropio)" class="h2Card"> 
+                        {{d.NombreUsuarioEmisor}}
+                        <span class="text-gray">{{d.Fecha_Ultimo_Mensaje | date:"dd/MM/yyyy"}}</span>              
+                        <!-- <span class="text-violet">10</span>               -->
+                    </h2> 
+                    <h2 *ngIf="(d.Usuario_Receptor != idUsuarioPropio)" class="h2Card"> 
+                        {{d.NombreUsuarioReceptor}}
+                        <span class="text-gray">{{d.Fecha_Ultimo_Mensaje | date:"dd/MM/yyyy"}}</span>              
+                        <!-- <span class="text-violet">11</span>               -->
+                    </h2>         
+                </div>
+            </div>
+        </ion-card>
+    
+      
+      </ion-list>
+</ion-content>

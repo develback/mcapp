@@ -1,0 +1,39 @@
+page-modal-notification {
+    .item-radio-checked.item-md ion-label {
+        color: #3a97c9;
+    }
+    .radio-md .radio-checked {
+        border-color: #3a97c9;
+    }
+    .radio-md .radio-inner {        
+        background-color: #3a97c9;
+    }
+    .item-input-has-focus {
+        color: $gray;
+        border-bottom-color: $gray !important;
+        .label {
+            color: $gray;
+        }
+    }
+    .item-md.item-input.item-input-has-focus .item-inner,
+    .item-md.item-input.input-has-focus .item-inner {
+      border-bottom-color: $gray !important;
+      -webkit-box-shadow: inset 0 -1px 0 0 $gray !important;
+      box-shadow: inset 0 -1px 0 0 $gray !important;
+    }
+    .list-md .item-input.item-input-has-focus:last-child,
+    .list-md .item-input.input-has-focus:last-child {
+      border-bottom-color: $gray !important;
+      -webkit-box-shadow: inset 0 -1px 0 0 $gray !important;
+      box-shadow: inset 0 -1px 0 0  $gray !important;
+    }
+
+    .item-input-has-focus .label-md[stacked],
+    .input-has-focus .label-md[stacked],
+    .item-input-has-focus .label-md[floating],
+    .input-has-focus .label-md[floating] {
+      color: $gray !important;
+    }
+    
+    
+}

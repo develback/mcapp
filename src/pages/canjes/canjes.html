@@ -1,0 +1,228 @@
+<ion-header class="bg-color">
+  <ion-navbar>
+      <ion-title class="text-theme">{{'canje_title' | translate}}         
+      </ion-title>
+  </ion-navbar>
+  <ion-segment [(ngModel)]="near">
+      <ion-segment-button value="Ofrecidos">
+          {{'offers' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="Recibidos">
+          {{'requested' | translate}}
+      </ion-segment-button>
+      <ion-segment-button value="Canjeados">
+          {{'redeemed' | translate}}
+      </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content class="bg-background">
+  <div [ngSwitch]="near">
+      <!--*ngSwitchCase="'Ofrecidos'" No funciona con 2 *ng-->
+      <!-- <ion-list no-lines *ngSwitchCase="'Ofrecidos'"> -->
+<!--         <div *ngFor="let d of canjesLst; let i = index" >            
+            <ion-item (click)="edit_event(d)">   
+                    <img [src]="d.Imagen" class="bg">          
+                    <ion-badge item-end>
+                            <ion-icon name="md-stopwatch"></ion-icon>
+                            {{d.Ult_Dias}} Días
+                    </ion-badge>          
+                    <div class="text">
+                        <h2>{{d.Nombre}}</h2>
+                        <p class="d-flex">
+                        <span class="text-theme">{{d.Descripcion}}</span>
+                        <span class=""> | {{d.Categoria}}</span>
+                        <span class="end">$ {{d.Importe}}</span>
+                        </p>                  
+                    </div>
+            </ion-item>        
+        </div> -->
+        <div *ngSwitchCase="'Ofrecidos'">
+            <ion-list class="offers"  *ngFor="let d of canjesLst; let i = index">
+              <ion-card (click)="edit_event(d)">
+                <ion-item >
+                  <ion-avatar item-start>
+                    <img [src]="d.UsuarioImagen" style="width: 50px;height: 50px;">
+                  </ion-avatar>
+                  <h2 style="font-size: 1.9rem;padding-bottom: 2px;font-weight: 500;">{{d.Usuario}}</h2>
+                  <p style="font-size: 1.4rem;font-weight: normal">{{d.Fecha_Publicacion | date:'dd/MM/yyyy'}}</p>
+                  <ion-avatar item-end>
+                    <img style="border-radius: 0%;width: 35px;height: 35px;" src="assets/imgs/share.png">
+                  </ion-avatar>
+                </ion-item>
+              
+               <img [src]="d.Imagen">
+              
+                <ion-card-content>
+                  <p>{{d.Nombre}}</p>
+                  
+                  <ion-item style="padding-left: 0px;">
+                    <ion-avatar item-start style="margin-right: 0px;">
+                      <img src="assets/imgs/pin.png" style="width: 30px;height: 30px;">
+                    </ion-avatar>
+                    <p style="color: #222;font-weight: normal;">2 km Belgrano</p>                      
+                  </ion-item>
+                  <ion-item style="padding-left: 0px;">
+                    <ion-avatar item-start style="margin-right: 0px;">
+                      <img src="assets/imgs/send.png" style="width: 30px;height: 30px;border-radius:0%;">
+                    </ion-avatar>
+                    <p style="color: #3a97c9;font-weight: normal;" (click)="presentToast('No se puede enviar solicitudes a uno mismo'); $event.stopPropagation()">Enviar solicitud de canje</p>                      
+                  </ion-item>
+                  
+                
+                </ion-card-content>
+              
+                <ion-row>
+                  <ion-col>
+                    <button ion-button icon-start clear small>
+                      <ion-icon name="thumbs-up"></ion-icon>
+                      <div>12 Likes</div>
+                    </button>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button icon-start clear small>
+                      <ion-icon name="text"></ion-icon>
+                      <div>4 Ofertas</div>
+                    </button>
+                  </ion-col>
+                  
+                </ion-row>
+              
+              </ion-card>
+            </ion-list>
+    
+    
+        </div>
+        <div class="CanjeadosEmpty" *ngIf="!CanjesOfrecidos">
+                <img  src="assets/imgs/NoCanjes.png" >          
+                <h2 >No hay canjes ofrecidos</h2>           
+          </div>
+    
+      <!-- </ion-list>       -->
+<!--       <ion-list class="ListReview" no-lines *ngSwitchCase="'Recibidos'" >
+          <div *ngFor="let d of recibidosLst">
+                <ion-item  (click)="ViewMatch(d)">
+                    <div class="item_header d-flex">
+                        <div class="profile d-flex">
+                            <div class="profile-img">
+                                <img [src]="d.ImgUsuarioSolicita">
+                            </div>
+                            <h2 class="text-black">
+                                    {{d.Nombre_UsuarioSolicita}}
+                                <span class="text-gray">{{d.Ult_Dias}} Días</span>
+                            </h2>
+                        </div>
+                        <div class="end">
+                                <ion-badge item-end (click)="ViewProfile(d.IdUsuarioSolicita); $event.stopPropagation()">
+                                        Ver Perfil
+                                </ion-badge>                                  
+                            </div>
+                            
+                    </div>
+                    <p class="text">
+                            {{d.Comentarios}}. Precio estimado ${{d.Importe}}
+                    </p>
+                </ion-item>
+
+                
+          </div>
+          <div class="RecibidosEmpty" *ngIf="!CanjesRecibidos">
+                <img  src="assets/imgs/NoCanjes.png" >          
+                <h2 >No hay canjes recibidos</h2>
+           
+          </div>          
+      </ion-list> -->
+      <div *ngSwitchCase="'Recibidos'" >
+        <ion-list class="offers" *ngFor="let d of recibidosLst; let i = index">    
+          <ion-card class="cardUsers" (click)="ViewMatch(d)"> 
+            <div class="banner">
+              <img src="assets/imgs/Fondo2_1080.jpg" class="bg">
+              <!-- <ion-badge item-end style="background-color: #fd7821;" (click)="ViewProfile(d.IdUsuarioSolicita); $event.stopPropagation()">Ver Perfil</ion-badge>  -->
+              
+              
+              <div class="profile d-flex">
+                  <div class="profile-img">
+                      <img [src]="d.ImgUsuarioSolicita">
+                  </div>
+                  <h2 class="h2Card">
+                      {{d.Nombre_UsuarioSolicita}}
+                      <span class="text-gray">{{d.Ult_Dias}} Días</span>              
+                      <span class="text-violet">1 km.</span>              
+                  </h2>          
+              </div>
+              
+            </div>
+            <ion-badge item-end style="background-color: #fd7821;" (click)="ViewProfile(d.IdUsuarioSolicita); $event.stopPropagation()">Ver Perfil</ion-badge> 
+          </ion-card>
+          
+        </ion-list>
+    </div>
+    <div class="RecibidosEmpty" *ngIf="!CanjesRecibidos">
+      <img  src="assets/imgs/NoCanjes.png" >          
+      <h2 >No hay canjes recibidos</h2>
+    </div>  
+     
+      <div *ngSwitchCase="'Canjeados'">
+        <ion-list class="offers"  *ngFor="let d of canjeadosLst; let i = index">
+          <ion-card>
+            <ion-item (click)="ViewChatting(d.IdUsuarioSolicita)">
+              <ion-avatar item-start>
+                <img [src]="d.ImgUsuarioSolicita" style="width: 50px;height: 50px;">
+              </ion-avatar>
+              <h2 style="font-size: 1.9rem;padding-bottom: 2px;font-weight: 500;">{{d.Nombre_UsuarioSolicita}}</h2>
+              <p style="font-size: 1.4rem;font-weight: normal">{{d.FechaPedido}}</p>
+              <ion-avatar item-end>
+                <img style="border-radius: 0%;width: 35px;height: 35px;" src="assets/imgs/share.png">
+              </ion-avatar>
+            </ion-item>
+          
+           <img [src]="d.ImgProductoInteres">
+          
+            <ion-card-content>
+              <p>{{d.NombreProductoInteres}} - ({{d.Desc_Estado}})</p>
+              
+              <ion-item style="padding-left: 0px;">
+                <ion-avatar item-start style="margin-right: 0px;">
+                  <img src="assets/imgs/pin.png" style="width: 30px;height: 30px;">
+                </ion-avatar>
+                <p style="color: #222;font-weight: normal;">2 km Belgrano</p>                      
+              </ion-item>
+              <ion-item (click)="VerCalificacion(d); $event.stopPropagation()" style="padding-left: 0px;">
+                <ion-avatar *ngIf="(!d.FueCalificado)" item-start style="margin-right: 0px;">
+                  <img src="assets/imgs/semi-star.png" style="width: 30px;height: 30px;border-radius:0%;">
+                </ion-avatar>
+                <p *ngIf="(!d.FueCalificado)" style="color: #65a3c4;font-weight: normal;">Calificar usuario</p>                      
+
+              </ion-item>
+              
+            
+            </ion-card-content>
+          
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <div>12 Likes</div>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="text"></ion-icon>
+                  <div>4 Ofertas</div>
+                </button>
+              </ion-col>
+              
+            </ion-row>
+          
+          </ion-card>
+        </ion-list>
+
+
+    </div>
+      
+  </div>
+  
+</ion-content>
+<ion-footer no-border class="d-flex">
+  <ion-icon class="material-icons text-white bg-theme end" (click)="NuevoCanje()">add</ion-icon>
+</ion-footer>

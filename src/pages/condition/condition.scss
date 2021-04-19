@@ -1,0 +1,21 @@
+page-condition {
+    .scroll-content {
+        padding: 0 25px;
+        padding-top: 10px;
+
+        p {
+            margin: 0px;
+            margin-bottom: 30px;
+            font-size: 1.6rem;
+            line-height: 25px;
+            color: lighten($text-light, 10%)
+        }
+
+        h2 {
+            margin: 0px;
+            margin-bottom: 30px;
+            font-size: 1.85rem;
+            font-weight: 500;
+        }
+    }
+}

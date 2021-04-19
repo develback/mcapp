@@ -1,0 +1,45 @@
+<ion-header class="bg-transparent">
+    <ion-navbar>
+        <ion-title>
+            <ion-badge class="end">
+                <ion-icon name="md-calendar"></ion-icon>
+                14/10/2019
+            </ion-badge>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-background">
+    <div class="banner">
+        <img src='assets/imgs/12.jpg'>
+        <div class="store-name">
+            <h2 class="text-white d-flex">1 Parrillada completa para 4 personas</h2>
+        </div>
+    </div>
+    <div class="details">
+        <div class="about">
+            <h3 class="text-black">{{'about_event2' | translate}}</h3>
+            <p class="text-black">Parrilla Locos de Asar. El comercio intercambia 1 parrillada para 4 personas que consta de: Vacío, Asado, Chorizos, Morcillas y achuras. No incluye bebidas o entradas. Por un valor de $3.100</p>
+        </div>
+        <div class="interested d-flex">
+            <h3 class="d-flex text-black">
+                12 <small class="text-black">{{'people_send' | translate}}</small>
+            </h3>
+            <button ion-button block icon-start class="btn text-white end"  round (click)="VerChat()">
+                <ion-icon class="material-icons">chat</ion-icon>
+                {{'chats_view' | translate}}
+            </button>
+        </div>
+        <div class="address">
+            <h3 class="text-white d-flex">{{'address' | translate}}
+             <!--   <span class="text-theme end ">{{'get_direction' | translate}}</span> -->
+            </h3>
+            <p class="text-white">Belgrano. Buenos Aires</p>
+            <div class="map">
+                <img src="assets/imgs/mapa3.jpg">
+            </div>
+            <img src="assets/imgs/ic_pin.png" class="location">
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,124 @@
+<ion-header class="bg-color">
+        <ion-navbar>
+                <ion-title class="text-theme">  
+                    <img src="assets/imgs/banner_mc.png" width="50%" height="50%" (click)="search()">
+                    <span class="end">                
+                        <img src="assets/imgs/ic_search-4.png" (click)="search()">
+                        <img src="assets/imgs/ic_account-4.png" (click)="perfil()">
+        
+                    </span>
+                </ion-title>
+            </ion-navbar>  
+  </ion-header>
+  
+  <ion-content class="bg-color">
+    <div>
+        <ion-list  class="offers" *ngFor="let d of listCanjes; let i = index">
+            <ion-item (click)="offerdetail(d.Id)">
+                <img [src]="d.Imagen" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    {{d.Ult_Dias}}  Días
+                </ion-badge>
+                <div class="text">
+                    <h2>{{d.Nombre}}</h2>
+                    <p class="d-flex">
+                      <span class="text-theme">{{d.Descripcion}}</span>
+                      <span class=""> | {{d.Categoria}}</span>
+                      <span class="end">$ {{d.Importe}}</span>
+                    </p>                  
+                </div>
+            </ion-item>
+
+          <!--
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/12.jpg" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    2 Días
+                </ion-badge>
+                <div class="text">
+                    <h2>1 Parrillada completa para 4 personas</h2>
+                    <p class="d-flex text-theme">
+                        5 {{'people_send' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/13.jpg" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    6 Días
+                </ion-badge>
+                <div class="text">
+                    <h2>1 Docena de empanadas de carne </h2>
+                    <p class="d-flex text-theme">
+                        10 {{'people_send' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/14.jpg" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    5 Hrs
+                </ion-badge>
+                <div class="text">
+                    <h2>Menú del día completo para dos personas</h2>
+                    <p class="d-flex text-theme">
+                        1 {{'people_send' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+  
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/16.jpg" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    2 Días
+                </ion-badge>
+                <div class="text">
+                    <h2>12 Alfajores Cachafaz dulce de leche</h2>
+                    <p class="d-flex text-theme">
+                        2 {{'people_send' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/17.jpg" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    6 Días
+                </ion-badge>
+                <div class="text">
+                    <h2>Choripan + gaseosa para llevar </h2>
+                    <p class="d-flex text-theme">
+                        3 {{'people_send' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+            <ion-item (click)="offerdetail()">
+                <img src="assets/imgs/18.jpg" class="bg">
+                <ion-badge item-end>
+                    <ion-icon name="md-stopwatch"></ion-icon>
+                    5 Hrs
+                </ion-badge>
+                <div class="text">
+                    <h2>24 Facturas mixtas</h2>
+                    <p class="d-flex text-theme">
+                        4 {{'people_send' | translate}}
+                    </p>
+                </div>
+            </ion-item>
+
+            -->
+
+        </ion-list>
+  
+    </div>
+  </ion-content>
+  <ion-footer no-border class="d-flex">
+    <ion-icon class="material-icons text-white bg-theme end" *ngIf="near == 'offers'" (click)="edit_offer()">add</ion-icon>
+    <ion-icon class="material-icons text-white bg-theme end" *ngIf="near == 'events'" (click)="edit_event()">add</ion-icon>
+  </ion-footer>
+  

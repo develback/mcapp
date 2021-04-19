@@ -1,0 +1,46 @@
+<ion-header class="bg-transparent">
+    <ion-navbar>
+        <ion-title>Calificar</ion-title>
+    </ion-navbar>
+    <div class="banner">
+        <img src="assets/imgs/Fondo2_1080.jpg" class="bg">
+        <div class="profile d-flex" (click)="profile()">
+            <div class="profile-img">
+                <img [src]="usCalificadoImg" *ngIf="usCalificadoImg">
+            </div>
+            <h2>
+                {{usCalificadoNombre}}
+                <span class="text-gray">{{'view_profile' | translate}}</span>
+            </h2>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content class="bg-background">
+    <div class="banner">
+        <img src="assets/imgs/background.png" class="bg">
+       
+        
+    </div>
+    <div class="form">
+        <ion-list no-lines padding-left padding-right>
+            <h4 style="color:#000000d9">¿Cómo calificás al usuario?</h4>
+            <ionic3-star-rating #rating class="rating"
+                activeIcon = "md-star"
+                defaultIcon = "md-star-outline"
+                activeColor = "#3a97c9"
+                defaultColor = "#a26bb7"
+                readonly = "false"
+                rating = "2"
+                fontSize = "40px"
+                (ratingChanged)="logRatingChange($event)">
+            </ionic3-star-rating>
+            <ion-item>
+                <!-- <ion-input type="email" placeholder="{{'let_us_know' | translate}}"></ion-input> -->
+                <ion-textarea type="text" [(ngModel)]="Comentarios" style="margin-top: 20px;" placeholder="Dejanos un comentario sobre el usuario."></ion-textarea>
+            </ion-item>
+            <button ion-button block class="btn" (click)="SendCalificacion()" round>Enviar Calificación</button>
+        </ion-list>
+        
+    </div>
+</ion-content>

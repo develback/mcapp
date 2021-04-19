@@ -1,0 +1,49 @@
+<ion-header class="bg-transparent">
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-color">
+    <div class="banner">
+        <img src="assets/imgs/background.png">
+    </div>
+    <div class="details">
+        <div class="store-name">
+            <h2 class="text-white">Golden Bakery</h2>
+            <p class="d-flex text-gray">Dairy & Bakery </p>
+            <h4 class="d-flex text-white">
+                <ion-badge item-end class="bg-theme text-white">4.3
+                    <ion-icon name="md-star"></ion-icon>
+                </ion-badge>
+                {{'98_people_rated' | translate}}<span class="end text-theme" (click)="review()">{{'read_all' | translate}}</span>
+            </h4>
+        </div>
+        <div class="about">
+            <h3 class="text-white">{{'aboput' | translate}}</h3>
+            <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        </div>
+        <div class="contact d-flex">
+            <div class="opening">
+                <h3 class="text-white">{{'opening_hours' | translate}}</h3>
+                <p class="text-theme">{{'open_now' | translate}}<span class="text-white">(08:00 - 22:00)</span></p>
+            </div>
+            <div text-end class="end">
+                <ion-icon name="md-heart" class="text-white bg-theme fevret"></ion-icon>
+                <ion-icon name="md-chatboxes" class="heart text-white bg-theme"></ion-icon>
+                <ion-icon name="md-call" class="text-white bg-theme"></ion-icon>
+            </div>
+        </div>
+        <div class="address">
+            <h3 class="text-white d-flex">{{'address' | translate}}
+                <span class="text-theme end ">{{'get_direction' | translate}}</span>
+            </h3>
+            <p class="text-white">1124, Old Church Street (250m)</p>
+            <div class="map">
+                <img src="assets/imgs/map-location.png">
+            </div>
+            <img src="assets/imgs/ic_pin.png" class="location">
+        </div>
+    </div>
+
+</ion-content>
